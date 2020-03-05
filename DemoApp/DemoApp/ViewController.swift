@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import SugarUI
 
 class ViewController: UIViewController {
+	var view1: UIView? = .instance()
+	var view2: UIView? = .instance()
+	var view3: UIView? = .instance()
+	var view4: UIView? = .instance()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		view.backgroundColor = .white
+
+		let views = [view1, view2, view3, view4]
+
+		views.backgroundColor([.green, .black, .red, .yellow])
+
+		view.embed(views, .vertical(>-20))
+		view.center(views, .horizontal)
+
+		views.matchSizes()
+		views.fixSizes(>-10)
 	}
-
-
 }
-

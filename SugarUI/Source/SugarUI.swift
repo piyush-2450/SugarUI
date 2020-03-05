@@ -10,34 +10,24 @@
 	import UIKit
 	public typealias Unit = CGFloat
     public typealias ViewElement = UIView
+	public typealias ViewColor = UIColor
     public typealias LayoutConstraint = NSLayoutConstraint
     public typealias LayoutPriority = UILayoutPriority
 	public typealias HorizontalAnchor = NSLayoutXAxisAnchor
 	public typealias VerticalAnchor = NSLayoutYAxisAnchor
 	public typealias LayoutAnchor = NSLayoutAnchor
+	public typealias LayoutDimension = NSLayoutDimension
 #elseif os(OSX)
-	import Cocoa
+	import AppKit
 	public typealias Unit = CGFloat
     public typealias ViewElement = NSView
+	public typealias ViewColor = UIColor
     public typealias LayoutConstraint = NSLayoutConstraint
     public typealias LayoutPriority = NSLayoutConstraint.Priority
 	public typealias HorizontalAnchor = NSLayoutXAxisAnchor
 	public typealias VerticalAnchor = NSLayoutYAxisAnchor
 	public typealias LayoutAnchor = NSLayoutAnchor
+	public typealias LayoutDimension = NSLayoutDimension
 #else
     #error("Unsupported platform")
 #endif
-
-public extension ViewElement {
-	static func instance() -> Self {
-		func instance<T: ViewElement>() -> T {
-			let instance = T(frame: .zero)
-			instance.backgroundColor = .clear
-			instance.translatesAutoresizingMaskIntoConstraints = false
-			instance.clipsToBounds = true
-			return instance
-		}
-
-		return instance()
-	}
-}

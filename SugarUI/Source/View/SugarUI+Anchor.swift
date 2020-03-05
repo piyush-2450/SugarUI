@@ -39,15 +39,23 @@ public extension ViewElement {
 		
 		return anchor
 	}
-	
+
 	func bottomAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
 		var anchor = bottomAnchor
-		
+
 		if safeArea == true,
 			#available(iOS 11.0, *){
 			anchor = safeAreaLayoutGuide.bottomAnchor
 		}
-		
+
 		return anchor
+	}
+
+	func horizontalCenterAnchor() -> HorizontalAnchor {
+		return centerXAnchor
+	}
+
+	func verticalCenterAnchor() -> VerticalAnchor {
+		return centerYAnchor
 	}
 }

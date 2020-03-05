@@ -7,21 +7,25 @@
 //
 
 public extension ViewElement {
-	enum Edge: CaseIterable {
+	enum Edge {
 		case lead
 		case trail
 		case top
 		case bottom
+
+		public static let all: [Edge] = Edge.horizontalEdges + Edge.verticalEdges
+		public static let verticalEdges: [Edge] = [.top, .bottom]
+		public static let horizontalEdges: [Edge] = [.lead, .trail]
 	}
 
 	struct EdgeVector {
 		private(set) var edge: Edge
-		private(set) var dimension: Dimension
+		private(set) var constraint: Constraint
 
 		init(_ edge: Edge,
-			 _ dimension: Dimension = .equal) {
+			 _ constraint: Constraint = .equal) {
 			self.edge = edge
-			self.dimension = dimension
+			self.constraint = constraint
 		}
 
 		public static var lead: EdgeVector {
@@ -40,24 +44,24 @@ public extension ViewElement {
 			return bottom()
 		}
 
-		public static func lead(_ dimension: Dimension = .equal) -> EdgeVector {
+		public static func lead(_ constraint: Constraint = .equal) -> EdgeVector {
 			return .init(.lead,
-						 dimension)
+						 constraint)
 		}
 
-		public static func trail(_ dimension: Dimension = .equal) -> EdgeVector {
+		public static func trail(_ constraint: Constraint = .equal) -> EdgeVector {
 			return .init(.trail,
-						 dimension)
+						 constraint)
 		}
 
-		public static func top(_ dimension: Dimension = .equal) -> EdgeVector {
+		public static func top(_ constraint: Constraint = .equal) -> EdgeVector {
 			return .init(.top,
-						 dimension)
+						 constraint)
 		}
 
-		public static func bottom(_ dimension: Dimension = .equal) -> EdgeVector {
+		public static func bottom(_ constraint: Constraint = .equal) -> EdgeVector {
 			return .init(.bottom,
-						 dimension)
+						 constraint)
 		}
 	}
 

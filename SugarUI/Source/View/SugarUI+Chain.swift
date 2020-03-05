@@ -14,12 +14,12 @@ public extension ViewElement {
 
 	struct ChainVector {
 		private(set) var direction: ChainDirection
-		private(set) var dimension: Dimension
+		private(set) var constraint: Constraint
 
 		init(_ direction: ChainDirection,
-			 _ dimension: Dimension = .equal) {
+			 _ constraint: Constraint = .equal) {
 			self.direction = direction
-			self.dimension = dimension
+			self.constraint = constraint
 		}
 
 		public static var vertical: ChainVector {
@@ -30,14 +30,14 @@ public extension ViewElement {
 			return horizontal()
 		}
 
-		public static func vertical(_ dimension: Dimension = .equal) -> ChainVector {
+		public static func vertical(_ constraint: Constraint = .equal) -> ChainVector {
 			return .init(.vertical,
-						 dimension)
+						 constraint)
 		}
 
-		public static func horizontal(_ dimension: Dimension = .equal) -> ChainVector {
+		public static func horizontal(_ constraint: Constraint = .equal) -> ChainVector {
 			return .init(.horizontal,
-						 dimension)
+						 constraint)
 		}
 	}
 }

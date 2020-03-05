@@ -1,13 +1,16 @@
 //
-//  SugarUI+Dimension.swift
+//  SugarUI+Constraint.swift
 //  SugarUI
 //
 //  Created by Piyush Banerjee on 04-Mar-2020.
 //  Copyright © 2020 Piyush Banerjee. All rights reserved.
 //
 
+prefix operator >-
+prefix operator -<
+
 public extension ViewElement {
-	struct Dimension {
+	struct Constraint: ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
 		public enum Relation {
 			case equal
 			case greater
@@ -29,21 +32,30 @@ public extension ViewElement {
 			self.activate = activate
 		}
 
-		public static var equal: Dimension {
+		public init(integerLiteral value: Int) {
+			self.init(floatLiteral: Double(value))
+		}
+
+		public init(floatLiteral value: Double) {
+			self.init(.equal,
+					  Unit(value))
+		}
+
+		public static var equal: Constraint {
 			return .equal()
 		}
 
-		public static var greater: Dimension {
+		public static var greater: Constraint {
 			return .greater()
 		}
 
-		public static var lesser: Dimension {
+		public static var lesser: Constraint {
 			return .lesser()
 		}
 
 		public static func equal(_ constant: Unit = .zero,
 								 _ priority: LayoutPriority = .required,
-								 _ activate: Bool = true) -> Dimension {
+								 _ activate: Bool = true) -> Constraint {
 			return .init(.equal,
 						 constant,
 						 priority,
@@ -52,7 +64,7 @@ public extension ViewElement {
 
 		public static func greater(_ constant: Unit = .zero,
 								   _ priority: LayoutPriority = .required,
-								   _ activate: Bool = true) -> Dimension {
+								   _ activate: Bool = true) -> Constraint {
 			return .init(.greater,
 						 constant,
 						 priority,
@@ -61,11 +73,19 @@ public extension ViewElement {
 
 		public static func lesser(_ constant: Unit = .zero,
 								  _ priority: LayoutPriority = .required,
-								  _ activate: Bool = true) -> Dimension {
+								  _ activate: Bool = true) -> Constraint {
 			return .init(.lesser,
 						 constant,
 						 priority,
 						 activate)
+		}
+
+		public static prefix func -<(_ constraint: Constraint) -> Constraint {
+			return .lesser(constraint.constant)
+		}
+
+		public static prefix func >-(_ constraint: Constraint) -> Constraint {
+			return .greater(constraint.constant)
 		}
 	}
 }

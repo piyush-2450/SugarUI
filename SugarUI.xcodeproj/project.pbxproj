@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E48D67924114B7400D3DA98 /* SugarUI+Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48D67824114B7400D3DA98 /* SugarUI+Axis.swift */; };
+		0E48D67B24114C9300D3DA98 /* SugarUI+AxialLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48D67A24114C9300D3DA98 /* SugarUI+AxialLayout.swift */; };
+		0E48D67D2411544D00D3DA98 /* SugarUI+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48D67C2411544D00D3DA98 /* SugarUI+Size.swift */; };
+		0E48D67F241154D500D3DA98 /* SugarUI+SizeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48D67E241154D500D3DA98 /* SugarUI+SizeLayout.swift */; };
+		0E48D68124116DAA00D3DA98 /* SugarUI+ViewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48D68024116DAA00D3DA98 /* SugarUI+ViewElement.swift */; };
 		0E5EA63F240FF1D900FD3D61 /* SugarUI+Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA63E240FF1D900FD3D61 /* SugarUI+Subview.swift */; };
 		0E5EA641240FF51200FD3D61 /* SugarUI+EdgeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA640240FF51200FD3D61 /* SugarUI+EdgeLayout.swift */; };
-		0E5EA643240FF81C00FD3D61 /* SugarUI+Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA642240FF81C00FD3D61 /* SugarUI+Dimension.swift */; };
+		0E5EA643240FF81C00FD3D61 /* SugarUI+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA642240FF81C00FD3D61 /* SugarUI+Constraint.swift */; };
 		0E5EA645241003D700FD3D61 /* SugarUI+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA644241003D700FD3D61 /* SugarUI+Anchor.swift */; };
 		0E5EA6472410058500FD3D61 /* SugarUI+LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA6462410058500FD3D61 /* SugarUI+LayoutConstraint.swift */; };
 		0E5EA64924101A5A00FD3D61 /* SugarUI+ChainLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA64824101A5A00FD3D61 /* SugarUI+ChainLayout.swift */; };
@@ -20,9 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E48D67824114B7400D3DA98 /* SugarUI+Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+Axis.swift"; sourceTree = "<group>"; };
+		0E48D67A24114C9300D3DA98 /* SugarUI+AxialLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+AxialLayout.swift"; sourceTree = "<group>"; };
+		0E48D67C2411544D00D3DA98 /* SugarUI+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+Size.swift"; sourceTree = "<group>"; };
+		0E48D67E241154D500D3DA98 /* SugarUI+SizeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+SizeLayout.swift"; sourceTree = "<group>"; };
+		0E48D68024116DAA00D3DA98 /* SugarUI+ViewElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+ViewElement.swift"; sourceTree = "<group>"; };
 		0E5EA63E240FF1D900FD3D61 /* SugarUI+Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+Subview.swift"; sourceTree = "<group>"; };
 		0E5EA640240FF51200FD3D61 /* SugarUI+EdgeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+EdgeLayout.swift"; sourceTree = "<group>"; };
-		0E5EA642240FF81C00FD3D61 /* SugarUI+Dimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+Dimension.swift"; sourceTree = "<group>"; };
+		0E5EA642240FF81C00FD3D61 /* SugarUI+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+Constraint.swift"; sourceTree = "<group>"; };
 		0E5EA644241003D700FD3D61 /* SugarUI+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+Anchor.swift"; sourceTree = "<group>"; };
 		0E5EA6462410058500FD3D61 /* SugarUI+LayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+LayoutConstraint.swift"; sourceTree = "<group>"; };
 		0E5EA64824101A5A00FD3D61 /* SugarUI+ChainLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+ChainLayout.swift"; sourceTree = "<group>"; };
@@ -45,18 +55,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E8B47E0240FF07400628BCC /* Source */ = {
+		0E48D68224116DCE00D3DA98 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0E8B47DE240FEE1800628BCC /* SugarUI.swift */,
+				0E48D68024116DAA00D3DA98 /* SugarUI+ViewElement.swift */,
 				0E5EA644241003D700FD3D61 /* SugarUI+Anchor.swift */,
-				0E5EA642240FF81C00FD3D61 /* SugarUI+Dimension.swift */,
+				0E5EA642240FF81C00FD3D61 /* SugarUI+Constraint.swift */,
 				0E5EA63E240FF1D900FD3D61 /* SugarUI+Subview.swift */,
 				0E5EA6462410058500FD3D61 /* SugarUI+LayoutConstraint.swift */,
 				0E5EA64C24101E8000FD3D61 /* SugarUI+Edge.swift */,
 				0E5EA640240FF51200FD3D61 /* SugarUI+EdgeLayout.swift */,
 				0E5EA64A24101E7200FD3D61 /* SugarUI+Chain.swift */,
 				0E5EA64824101A5A00FD3D61 /* SugarUI+ChainLayout.swift */,
+				0E48D67824114B7400D3DA98 /* SugarUI+Axis.swift */,
+				0E48D67A24114C9300D3DA98 /* SugarUI+AxialLayout.swift */,
+				0E48D67C2411544D00D3DA98 /* SugarUI+Size.swift */,
+				0E48D67E241154D500D3DA98 /* SugarUI+SizeLayout.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E48D68324116DDF00D3DA98 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0E8B47E0240FF07400628BCC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0E8B47DE240FEE1800628BCC /* SugarUI.swift */,
+				0E48D68224116DCE00D3DA98 /* View */,
+				0E48D68324116DDF00D3DA98 /* ViewController */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -167,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E48D68124116DAA00D3DA98 /* SugarUI+ViewElement.swift in Sources */,
 				0E5EA64924101A5A00FD3D61 /* SugarUI+ChainLayout.swift in Sources */,
 				0E5EA63F240FF1D900FD3D61 /* SugarUI+Subview.swift in Sources */,
 				0E5EA64D24101E8000FD3D61 /* SugarUI+Edge.swift in Sources */,
@@ -174,8 +206,12 @@
 				0E5EA641240FF51200FD3D61 /* SugarUI+EdgeLayout.swift in Sources */,
 				0E5EA64B24101E7200FD3D61 /* SugarUI+Chain.swift in Sources */,
 				0E5EA6472410058500FD3D61 /* SugarUI+LayoutConstraint.swift in Sources */,
+				0E48D67D2411544D00D3DA98 /* SugarUI+Size.swift in Sources */,
+				0E48D67924114B7400D3DA98 /* SugarUI+Axis.swift in Sources */,
 				0E5EA645241003D700FD3D61 /* SugarUI+Anchor.swift in Sources */,
-				0E5EA643240FF81C00FD3D61 /* SugarUI+Dimension.swift in Sources */,
+				0E5EA643240FF81C00FD3D61 /* SugarUI+Constraint.swift in Sources */,
+				0E48D67F241154D500D3DA98 /* SugarUI+SizeLayout.swift in Sources */,
+				0E48D67B24114C9300D3DA98 /* SugarUI+AxialLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +229,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -237,9 +274,11 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -256,6 +295,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -293,9 +333,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -327,7 +369,6 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -356,7 +397,6 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

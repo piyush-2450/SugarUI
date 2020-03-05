@@ -18,14 +18,39 @@ public extension ViewElement {
 			case .vertical:
 				constraint = view.topAnchor(safeArea)
 					.constraint(to: bottomAnchor(safeArea),
-								chainVector.dimension)
+								chainVector.constraint)
 			case .horizontal:
 				constraint = view.leadAnchor(safeArea)
 					.constraint(to: trailAnchor(safeArea),
-								chainVector.dimension)
+								chainVector.constraint)
 			}
 		}
 
 		return constraint
+	}
+}
+
+// MARK: - Array sweetness
+
+public extension Array where Element == ViewElement? {
+	@discardableResult
+	func chain(_ view: ViewElement?,
+			   chainVector: ViewElement.ChainVector,
+			   safeArea: Bool = false) -> [LayoutConstraint?]? {
+		var constraints: [LayoutConstraint?]?
+
+		if let view = view,
+			count > 0 {
+			constraints = []
+
+			for element in self {
+				let constraint = element?.chain(view,
+												chainVector: chainVector,
+												safeArea: safeArea)
+				constraints?.append(constraint)
+			}
+		}
+
+		return constraints
 	}
 }
