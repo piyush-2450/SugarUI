@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  DemoApp
 //
-//  Created by Piyush Banerjee on 05-Mar-2020.
+//  Created by Piyush Banerjee on 06-Mar-2020.
 //  Copyright © 2020 Piyush Banerjee. All rights reserved.
 //
 
@@ -10,23 +10,59 @@ import UIKit
 import SugarUI
 
 class ViewController: UIViewController {
-	var view1: UIView? = .instance()
-	var view2: UIView? = .instance()
-	var view3: UIView? = .instance()
-	var view4: UIView? = .instance()
+	var superview: UIView? {
+		return view
+	}
+
+	var subview1: UIView? = .instance()
+	var subview2: UIView? = .instance()
+	var subview3: UIView? = .instance()
+	var subview4: UIView? = .instance()
+
+	var subviews: [UIView?] {
+		return [subview1,
+				subview2,
+				subview3,
+				subview4]
+	}
+
+	func doNotUse() {
+		superview?.embed(subview1, >-20)
+
+		embed(subviews, .vertical(>-20))
+		superview?.center(subviews, .horizontal)
+
+		UIView.chain([subview1, subview2, subview3], .vertical)
+
+		subview1?.chain(subview2, .vertical)
+		subview2?.chain(subview3, .vertical)
+
+		superview?.center(subview1)
+		superview?.center(subviews, .vertical)
+
+		subview1?.center(subview2)
+
+		subview1?.height(-<20)
+		subview1?.height([-<20, >-10])
+
+		subview1?.width(-<20)
+		subview1?.width([-<20, >-10])
+
+		subview2?.matchSize(subview1)
+		subview2?.matchSize(subview1, 20)
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .white
 
-		let views = [view1, view2, view3, view4]
+		let subviews = [subview1, subview2, subview3, subview4]
 
-		views.backgroundColor([.green, .black, .red, .yellow])
+		subviews.backgroundColor([.green, .black, .red, .yellow])
 
-		embed(views, .vertical(>-20))
-		view.center(views, .horizontal)
+		embed(subviews, .vertical(>-20))
 
-		views.matchSizes()
-		views.fixSizes(>-10)
+		subviews.matchSizes()
+		subviews.fixSizes(>-10)
 	}
 }

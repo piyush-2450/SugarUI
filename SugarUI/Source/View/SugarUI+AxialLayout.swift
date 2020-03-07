@@ -2,14 +2,14 @@
 //  SugarUI+AxisLayout.swift
 //  SugarUI
 //
-//  Created by Piyush Banerjee on 05-Mar-2020.
+//  Created by Piyush Banerjee on 06-Mar-2020.
 //  Copyright © 2020 Piyush Banerjee. All rights reserved.
 //
 
 public extension ViewElement {
 	@discardableResult
 	func center(_ view: ViewElement?,
-				axisVector: AxisVector) -> LayoutConstraint? {
+				_ axisVector: AxisVector) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
 
 		if let view = view {
@@ -30,7 +30,7 @@ public extension ViewElement {
 
 	@discardableResult
 	func center(_ view: ViewElement?,
-				axisVectors: [AxisVector]) -> AxisConstraints? {
+				_ axisVectors: [AxisVector]) -> AxisConstraints? {
 		var constraints: AxisConstraints?
 
 		if let view = view,
@@ -39,7 +39,7 @@ public extension ViewElement {
 
 			for axisVector in axisVectors {
 				let constraint = center(view,
-										axisVector: axisVector)
+										axisVector)
 
 				switch axisVector.axis {
 				case .vertical:
@@ -55,8 +55,8 @@ public extension ViewElement {
 
 	@discardableResult
 	func center(_ view: ViewElement?,
-				axes: [Axis] = Axis.all,
-				constraint: Constraint = .equal) -> AxisConstraints? {
+				_ axes: [Axis] = .all,
+				_ constraint: Constraint = .equal) -> AxisConstraints? {
 		var constraints: AxisConstraints?
 
 		if let view = view,
@@ -67,7 +67,7 @@ public extension ViewElement {
 				let axisVector = AxisVector(axis,
 											constraint)
 				let constraint = center(view,
-										axisVector: axisVector)
+										axisVector)
 
 				switch axisVector.axis {
 				case .vertical:
@@ -83,15 +83,15 @@ public extension ViewElement {
 
 	@discardableResult
 	func center(_ view: ViewElement?,
-				axis: Axis,
-				constraint: Constraint = .equal) -> LayoutConstraint? {
+				_ axis: Axis,
+				_ constraint: Constraint = .equal) -> LayoutConstraint? {
 		var axisConstraint: LayoutConstraint?
 
 		if let view = view {
 			let axisVector = AxisVector(axis,
 										constraint)
 			axisConstraint = center(view,
-									axisVector: axisVector)
+									axisVector)
 		}
 
 		return axisConstraint
@@ -100,7 +100,7 @@ public extension ViewElement {
 	@discardableResult
 	func center(_ views: [ViewElement?]?,
 				_ axis: Axis,
-				constraint: Constraint = .equal) -> [LayoutConstraint?]? {
+				_ constraint: Constraint = .equal) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
 		if let views = views,
@@ -111,7 +111,7 @@ public extension ViewElement {
 				let axisVector = AxisVector(axis,
 											constraint)
 				let axisConstraint = center(view,
-											axisVector: axisVector)
+											axisVector)
 				constraints?.append(axisConstraint)
 			}
 		}
@@ -125,7 +125,7 @@ public extension ViewElement {
 public extension Array where Element == ViewElement? {
 	@discardableResult
 	func center(_ view: ViewElement?,
-				axisVector: ViewElement.AxisVector) -> [LayoutConstraint?]? {
+				_ axisVector: ViewElement.AxisVector) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
 		if let view = view,
@@ -134,7 +134,7 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.center(view,
-												 axisVector: axisVector)
+												 axisVector)
 				constraints?.append(constraint)
 			}
 		}
@@ -144,7 +144,7 @@ public extension Array where Element == ViewElement? {
 
 	@discardableResult
 	func center(_ view: ViewElement?,
-				axisVectors: [ViewElement.AxisVector]) -> [ViewElement.AxisConstraints?]? {
+				_ axisVectors: [ViewElement.AxisVector]) -> [ViewElement.AxisConstraints?]? {
 		var constraints: [ViewElement.AxisConstraints?]?
 
 		if let view = view,
@@ -153,7 +153,7 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.center(view,
-												 axisVectors: axisVectors)
+												 axisVectors)
 				constraints?.append(constraint)
 			}
 		}
@@ -163,8 +163,8 @@ public extension Array where Element == ViewElement? {
 
 	@discardableResult
 	func center(_ view: ViewElement?,
-				axes: [ViewElement.Axis] = ViewElement.Axis.all,
-				constraint: ViewElement.Constraint = .equal) -> [ViewElement.AxisConstraints?]? {
+				_ axes: [ViewElement.Axis] = .all,
+				_ constraint: ViewElement.Constraint = .equal) -> [ViewElement.AxisConstraints?]? {
 		var constraints: [ViewElement.AxisConstraints?]?
 
 		if let view = view,
@@ -173,8 +173,8 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.center(view,
-												 axes: axes,
-												 constraint: constraint)
+												 axes,
+												 constraint)
 				constraints?.append(constraint)
 			}
 		}
@@ -184,7 +184,7 @@ public extension Array where Element == ViewElement? {
 
 	@discardableResult
 	func centerViews(_ axis: ViewElement.Axis,
-					 constraint: ViewElement.Constraint = .equal) -> [LayoutConstraint?]? {
+					 _ constraint: ViewElement.Constraint = .equal) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
 		if count > 0,
@@ -194,8 +194,8 @@ public extension Array where Element == ViewElement? {
 			for element in self {
 				if element != first {
 					let axisConstraint = element?.center(firstElement,
-														 axis: axis,
-														 constraint: constraint)
+														 axis,
+														 constraint)
 					constraints?.append(axisConstraint)
 				}
 			}

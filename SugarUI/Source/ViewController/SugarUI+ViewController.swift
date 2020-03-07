@@ -10,11 +10,11 @@ public extension ViewController {
 	@discardableResult
 	func embed(_ subviews: [ViewElement?]?,
 			   _ chainVector: ViewElement.ChainVector,
-			   padding: ViewElement.Constraint = .equal,
+			   _ padding: ViewElement.Constraint = .equal,
 			   safeArea: Bool = true) -> [ViewElement.EdgeConstraints?]? {
 		return view.embed(subviews,
 						  chainVector,
-						  padding: padding,
+						  padding,
 						  safeArea: safeArea)
 	}
 }

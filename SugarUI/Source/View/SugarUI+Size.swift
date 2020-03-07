@@ -2,7 +2,7 @@
 //  SugarUI+Size.swift
 //  SugarUI
 //
-//  Created by Piyush Banerjee on 05-Mar-2020.
+//  Created by Piyush Banerjee on 06-Mar-2020.
 //  Copyright © 2020 Piyush Banerjee. All rights reserved.
 //
 
@@ -63,5 +63,13 @@ public extension ViewElement {
 				width = constraint
 			}
 		}
+	}
+}
+
+// MARK: - Array sweetness
+
+public extension Array where Element == ViewElement.Size {
+	static var all: [ViewElement.Size] {
+		return ViewElement.Size.all
 	}
 }

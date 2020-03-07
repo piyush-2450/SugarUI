@@ -2,14 +2,14 @@
 //  SugarUI+EdgeLayout.swift
 //  SugarUI
 //
-//  Created by Piyush Banerjee on 04-Mar-2020.
+//  Created by Piyush Banerjee on 06-Mar-2020.
 //  Copyright © 2020 Piyush Banerjee. All rights reserved.
 //
 
 public extension ViewElement {
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   edgeVector: EdgeVector,
+			   _ edgeVector: EdgeVector,
 			   safeArea: Bool = false) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
 
@@ -39,7 +39,7 @@ public extension ViewElement {
 
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   edgeVectors: [EdgeVector],
+			   _ edgeVectors: [EdgeVector],
 			   safeArea: Bool = false) -> EdgeConstraints? {
 		var constraints: EdgeConstraints?
 
@@ -49,7 +49,7 @@ public extension ViewElement {
 
 			for edgeVector in edgeVectors {
 				let constraint = align(subview,
-									   edgeVector: edgeVector,
+									   edgeVector,
 									   safeArea: safeArea)
 
 				switch edgeVector.edge {
@@ -70,8 +70,8 @@ public extension ViewElement {
 
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   edges: [Edge] = Edge.all,
-			   constraint: Constraint = .equal,
+			   _ edges: [Edge] = .all,
+			   _ constraint: Constraint = .equal,
 			   safeArea: Bool = false) -> EdgeConstraints? {
 		var constraints: EdgeConstraints?
 
@@ -83,7 +83,7 @@ public extension ViewElement {
 				let edgeVector = EdgeVector(edge,
 											constraint)
 				let constraint = align(subview,
-									   edgeVector: edgeVector,
+									   edgeVector,
 									   safeArea: safeArea)
 
 				switch edgeVector.edge {
@@ -108,7 +108,7 @@ public extension ViewElement {
 public extension Array where Element == ViewElement? {
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   edgeVector: ViewElement.EdgeVector,
+			   _ edgeVector: ViewElement.EdgeVector,
 			   safeArea: Bool = false) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
@@ -118,7 +118,7 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.align(subview,
-												edgeVector: edgeVector,
+												edgeVector,
 												safeArea: safeArea)
 				constraints?.append(constraint)
 			}
@@ -129,7 +129,7 @@ public extension Array where Element == ViewElement? {
 
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   edgeVectors: [ViewElement.EdgeVector],
+			   _ edgeVectors: [ViewElement.EdgeVector],
 			   safeArea: Bool = false) -> [ViewElement.EdgeConstraints?]? {
 		var constraints: [ViewElement.EdgeConstraints?]?
 
@@ -139,7 +139,7 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.align(subview,
-												edgeVectors: edgeVectors,
+												edgeVectors,
 												safeArea: safeArea)
 				constraints?.append(constraint)
 			}
@@ -150,8 +150,8 @@ public extension Array where Element == ViewElement? {
 
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   edges: [ViewElement.Edge] = ViewElement.Edge.all,
-			   constraint: ViewElement.Constraint = .equal,
+			   _ edges: [ViewElement.Edge] = .all,
+			   _ constraint: ViewElement.Constraint = .equal,
 			   safeArea: Bool = false) -> [ViewElement.EdgeConstraints?]? {
 		var constraints: [ViewElement.EdgeConstraints?]?
 
@@ -161,8 +161,8 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.align(subview,
-												edges: edges,
-												constraint: constraint,
+												edges,
+												constraint,
 												safeArea: safeArea)
 				constraints?.append(constraint)
 			}

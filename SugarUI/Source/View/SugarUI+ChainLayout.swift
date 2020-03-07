@@ -2,14 +2,14 @@
 //  SugarUI+ChainLayout.swift
 //  SugarUI
 //
-//  Created by Piyush Banerjee on 04-Mar-2020.
+//  Created by Piyush Banerjee on 06-Mar-2020.
 //  Copyright © 2020 Piyush Banerjee. All rights reserved.
 //
 
 public extension ViewElement {
 	@discardableResult
 	func chain(_ view: ViewElement?,
-			   chainVector: ChainVector,
+			   _ chainVector: ChainVector,
 			   safeArea: Bool = false) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
 
@@ -28,6 +28,31 @@ public extension ViewElement {
 
 		return constraint
 	}
+
+	@discardableResult
+	class func chain(_ views: [ViewElement?]?,
+					 _ chainVector: ChainVector,
+					 safeArea: Bool = false) -> [LayoutConstraint?]? {
+		var constraints: [LayoutConstraint?]?
+
+		if let views = views,
+			views.count > 0 {
+			constraints = []
+			var previousView: ViewElement?
+
+			for view in views {
+				if let previousView = previousView {
+					let constraint = previousView.chain(view,
+														chainVector)
+					constraints?.append(constraint)
+				}
+
+				previousView = view
+			}
+		}
+
+		return constraints
+	}
 }
 
 // MARK: - Array sweetness
@@ -35,7 +60,7 @@ public extension ViewElement {
 public extension Array where Element == ViewElement? {
 	@discardableResult
 	func chain(_ view: ViewElement?,
-			   chainVector: ViewElement.ChainVector,
+			   _ chainVector: ViewElement.ChainVector,
 			   safeArea: Bool = false) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
@@ -45,7 +70,7 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.chain(view,
-												chainVector: chainVector,
+												chainVector,
 												safeArea: safeArea)
 				constraints?.append(constraint)
 			}

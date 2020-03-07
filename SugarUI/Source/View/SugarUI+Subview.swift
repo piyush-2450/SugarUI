@@ -2,7 +2,7 @@
 //  SugarUI+Subviews.swift
 //  SugarUI
 //
-//  Created by Piyush Banerjee on 04-Mar-2020.
+//  Created by Piyush Banerjee on 06-Mar-2020.
 //  Copyright © 2020 Piyush Banerjee. All rights reserved.
 //
 
@@ -25,7 +25,7 @@ public extension ViewElement {
 		}
 
 		return (edge, align(view,
-							edgeVector: .init(edge, padding),
+							.init(edge, padding),
 							safeArea: safeArea))
 	}
 
@@ -43,7 +43,7 @@ public extension ViewElement {
 		}
 
 		return (edge, align(view,
-							edgeVector: .init(edge, padding),
+							.init(edge, padding),
 							safeArea: safeArea))
 	}
 
@@ -61,8 +61,8 @@ public extension ViewElement {
 		}
 
 		return align(view,
-					 edges: edges,
-					 constraint: padding)
+					 edges,
+					 padding)
 	}
 
 	// MARK: Internal scope
@@ -87,14 +87,25 @@ public extension ViewElement {
 			   safeArea: Bool = false) -> EdgeConstraints? {
 		add(subview)
 		return align(subview,
-					 constraint: constraint,
+					 .all,
+					 constraint,
+					 safeArea: safeArea)
+	}
+
+	@discardableResult
+	func embed(_ subview: ViewElement?,
+			   _ edgeVectors: [EdgeVector],
+			   safeArea: Bool = false) -> EdgeConstraints? {
+		add(subview)
+		return align(subview,
+					 edgeVectors,
 					 safeArea: safeArea)
 	}
 
 	@discardableResult
 	func embed(_ subviews: [ViewElement?]?,
 			   _ chainVector: ChainVector,
-			   padding: ViewElement.Constraint = .equal,
+			   _ padding: ViewElement.Constraint = .equal,
 			   safeArea: Bool = false) -> [EdgeConstraints?]? {
 		var constraints: [EdgeConstraints?]?
 
@@ -130,7 +141,7 @@ public extension ViewElement {
 
 				if let constraint = previousView?
 					.chain(view,
-						   chainVector: chainVector,
+						   chainVector,
 						   safeArea: safeArea) {
 					switch chainVector.direction {
 					case .vertical:
