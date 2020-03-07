@@ -35,8 +35,11 @@ superview = .instance()
 Adding a subview to a superview's hierarchy:
 
 ```swift
-// Adding
+// Adding one subview
 superview?.add(subview1)
+
+// Adding multiple subviews
+superview?.add([subview1, subview2])
 ```
 
 Adding a subview & setting the leading, trailing, top & bottom edges to a superview's hierarchy (Embedding):
@@ -92,7 +95,7 @@ subview1?.height(-<20)
 subview1?.height([>-10, -<20])
 ```
 
-View size relations can be seyup easily as follows:
+View size relations can be setup easily as follows:
 
 ```swift
 // Ensure subview2 has the same height & width as subview1
