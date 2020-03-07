@@ -7,11 +7,35 @@
 //
 
 public extension ViewElement {
+	var leadAnchor: HorizontalAnchor {
+		return leadAnchor()
+	}
+
+	var trailAnchor: HorizontalAnchor {
+		return trailAnchor()
+	}
+
+	var topAnchor: VerticalAnchor {
+		return topAnchor()
+	}
+
+	var bottomAnchor: VerticalAnchor {
+		return bottomAnchor()
+	}
+
+	var horizontalCenterAnchor: HorizontalAnchor {
+		return centerXAnchor
+	}
+
+	var verticalCenterAnchor: VerticalAnchor {
+		return centerYAnchor
+	}
+
 	func leadAnchor(_ safeArea: Bool = false) -> HorizontalAnchor {
 		var anchor = leadingAnchor
 		
 		if safeArea == true,
-			#available(iOS 11.0, *){
+			#available(iOS 11.0, *) {
 			anchor = safeAreaLayoutGuide.leadingAnchor
 		}
 		
@@ -22,7 +46,7 @@ public extension ViewElement {
 		var anchor = trailingAnchor
 		
 		if safeArea == true,
-			#available(iOS 11.0, *){
+			#available(iOS 11.0, *) {
 			anchor = safeAreaLayoutGuide.trailingAnchor
 		}
 		
@@ -33,7 +57,7 @@ public extension ViewElement {
 		var anchor = topAnchor
 		
 		if safeArea == true,
-			#available(iOS 11.0, *){
+			#available(iOS 11.0, *) {
 			anchor = safeAreaLayoutGuide.topAnchor
 		}
 		
@@ -44,18 +68,10 @@ public extension ViewElement {
 		var anchor = bottomAnchor
 
 		if safeArea == true,
-			#available(iOS 11.0, *){
+			#available(iOS 11.0, *) {
 			anchor = safeAreaLayoutGuide.bottomAnchor
 		}
 
 		return anchor
-	}
-
-	func horizontalCenterAnchor() -> HorizontalAnchor {
-		return centerXAnchor
-	}
-
-	func verticalCenterAnchor() -> VerticalAnchor {
-		return centerYAnchor
 	}
 }

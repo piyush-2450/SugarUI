@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 
 		views.backgroundColor([.green, .black, .red, .yellow])
 
-		view.embed(views, .vertical(>-20))
+		embed(views, .vertical(>-20))
 		view.center(views, .horizontal)
 
 		views.matchSizes()

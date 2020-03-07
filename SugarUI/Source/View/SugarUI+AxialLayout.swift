@@ -15,12 +15,12 @@ public extension ViewElement {
 		if let view = view {
 			switch (axisVector.axis, axisVector.constraint) {
 			case (.vertical, let axisConstraint):
-				constraint = verticalCenterAnchor()
-					.constraint(to: view.verticalCenterAnchor(),
+				constraint = verticalCenterAnchor
+					.constraint(to: view.verticalCenterAnchor,
 								axisConstraint)
 			case (.horizontal, let axisConstraint):
-				constraint = horizontalCenterAnchor()
-					.constraint(to: view.horizontalCenterAnchor(),
+				constraint = horizontalCenterAnchor
+					.constraint(to: view.horizontalCenterAnchor,
 								axisConstraint)
 			}
 		}

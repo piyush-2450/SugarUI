@@ -94,7 +94,7 @@ public extension ViewElement {
 	@discardableResult
 	func embed(_ subviews: [ViewElement?]?,
 			   _ chainVector: ChainVector,
-			   _ padding: ViewElement.Constraint = .equal,
+			   padding: ViewElement.Constraint = .equal,
 			   safeArea: Bool = false) -> [EdgeConstraints?]? {
 		var constraints: [EdgeConstraints?]?
 

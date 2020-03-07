@@ -12,6 +12,8 @@
 		0E48D67D2411544D00D3DA98 /* SugarUI+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48D67C2411544D00D3DA98 /* SugarUI+Size.swift */; };
 		0E48D67F241154D500D3DA98 /* SugarUI+SizeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48D67E241154D500D3DA98 /* SugarUI+SizeLayout.swift */; };
 		0E48D68124116DAA00D3DA98 /* SugarUI+ViewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48D68024116DAA00D3DA98 /* SugarUI+ViewElement.swift */; };
+		0E50C1322412ADE000DF8C88 /* SugarUI+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50C1312412ADE000DF8C88 /* SugarUI+ViewController.swift */; };
+		0E50C1342412AF2B00DF8C88 /* SugarUI+ViewControllerAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50C1332412AF2B00DF8C88 /* SugarUI+ViewControllerAnchor.swift */; };
 		0E5EA63F240FF1D900FD3D61 /* SugarUI+Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA63E240FF1D900FD3D61 /* SugarUI+Subview.swift */; };
 		0E5EA641240FF51200FD3D61 /* SugarUI+EdgeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA640240FF51200FD3D61 /* SugarUI+EdgeLayout.swift */; };
 		0E5EA643240FF81C00FD3D61 /* SugarUI+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EA642240FF81C00FD3D61 /* SugarUI+Constraint.swift */; };
@@ -30,6 +32,8 @@
 		0E48D67C2411544D00D3DA98 /* SugarUI+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+Size.swift"; sourceTree = "<group>"; };
 		0E48D67E241154D500D3DA98 /* SugarUI+SizeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+SizeLayout.swift"; sourceTree = "<group>"; };
 		0E48D68024116DAA00D3DA98 /* SugarUI+ViewElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+ViewElement.swift"; sourceTree = "<group>"; };
+		0E50C1312412ADE000DF8C88 /* SugarUI+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+ViewController.swift"; sourceTree = "<group>"; };
+		0E50C1332412AF2B00DF8C88 /* SugarUI+ViewControllerAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+ViewControllerAnchor.swift"; sourceTree = "<group>"; };
 		0E5EA63E240FF1D900FD3D61 /* SugarUI+Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+Subview.swift"; sourceTree = "<group>"; };
 		0E5EA640240FF51200FD3D61 /* SugarUI+EdgeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+EdgeLayout.swift"; sourceTree = "<group>"; };
 		0E5EA642240FF81C00FD3D61 /* SugarUI+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarUI+Constraint.swift"; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		0E48D68324116DDF00D3DA98 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0E50C1332412AF2B00DF8C88 /* SugarUI+ViewControllerAnchor.swift */,
+				0E50C1312412ADE000DF8C88 /* SugarUI+ViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -204,9 +210,11 @@
 				0E5EA64D24101E8000FD3D61 /* SugarUI+Edge.swift in Sources */,
 				0E8B47DF240FEE1800628BCC /* SugarUI.swift in Sources */,
 				0E5EA641240FF51200FD3D61 /* SugarUI+EdgeLayout.swift in Sources */,
+				0E50C1322412ADE000DF8C88 /* SugarUI+ViewController.swift in Sources */,
 				0E5EA64B24101E7200FD3D61 /* SugarUI+Chain.swift in Sources */,
 				0E5EA6472410058500FD3D61 /* SugarUI+LayoutConstraint.swift in Sources */,
 				0E48D67D2411544D00D3DA98 /* SugarUI+Size.swift in Sources */,
+				0E50C1342412AF2B00DF8C88 /* SugarUI+ViewControllerAnchor.swift in Sources */,
 				0E48D67924114B7400D3DA98 /* SugarUI+Axis.swift in Sources */,
 				0E5EA645241003D700FD3D61 /* SugarUI+Anchor.swift in Sources */,
 				0E5EA643240FF81C00FD3D61 /* SugarUI+Constraint.swift in Sources */,

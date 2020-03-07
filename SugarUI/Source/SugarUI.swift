@@ -9,6 +9,7 @@
 #if canImport(UIKit)
 	import UIKit
 	public typealias Unit = CGFloat
+    public typealias ViewController = UIViewController
     public typealias ViewElement = UIView
 	public typealias ViewColor = UIColor
     public typealias LayoutConstraint = NSLayoutConstraint
@@ -20,6 +21,7 @@
 #elseif os(OSX)
 	import AppKit
 	public typealias Unit = CGFloat
+    public typealias ViewController = NSViewController
     public typealias ViewElement = NSView
 	public typealias ViewColor = UIColor
     public typealias LayoutConstraint = NSLayoutConstraint
