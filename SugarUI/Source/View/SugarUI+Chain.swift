@@ -23,20 +23,20 @@ public extension ViewElement {
 		}
 
 		public static var vertical: ChainVector {
-			return vertical()
+			vertical()
 		}
 
 		public static var horizontal: ChainVector {
-			return horizontal()
+			horizontal()
 		}
 
 		public static func vertical(_ constraint: Constraint = .equal) -> ChainVector {
-			return .init(.vertical,
+			.init(.vertical,
 						 constraint)
 		}
 
 		public static func horizontal(_ constraint: Constraint = .equal) -> ChainVector {
-			return .init(.horizontal,
+			.init(.horizontal,
 						 constraint)
 		}
 	}

@@ -29,38 +29,38 @@ public extension ViewElement {
 		}
 
 		public static var lead: EdgeVector {
-			return lead()
+			lead()
 		}
 
 		public static var trail: EdgeVector {
-			return trail()
+			trail()
 		}
 
 		public static var top: EdgeVector {
-			return top()
+			top()
 		}
 
 		public static var bottom: EdgeVector {
-			return bottom()
+			bottom()
 		}
 
 		public static func lead(_ constraint: Constraint = .equal) -> EdgeVector {
-			return .init(.lead,
+			.init(.lead,
 						 constraint)
 		}
 
 		public static func trail(_ constraint: Constraint = .equal) -> EdgeVector {
-			return .init(.trail,
+			.init(.trail,
 						 constraint)
 		}
 
 		public static func top(_ constraint: Constraint = .equal) -> EdgeVector {
-			return .init(.top,
+			.init(.top,
 						 constraint)
 		}
 
 		public static func bottom(_ constraint: Constraint = .equal) -> EdgeVector {
-			return .init(.bottom,
+			.init(.bottom,
 						 constraint)
 		}
 	}
@@ -100,7 +100,7 @@ public extension ViewElement {
 
 public extension Array where Element == ViewElement.Edge {
 	static var all: [ViewElement.Edge] {
-		return ViewElement.Edge.all
+		ViewElement.Edge.all
 	}
 }
 

@@ -7,12 +7,31 @@
 //
 
 public extension ViewElement {
+    var colorBackground: ViewColor {
+        get {
+#if canImport(UIKit)
+            backgroundColor
+#else
+            .clear
+#endif
+        }
+        set {
+#if canImport(UIKit)
+            backgroundColor = newVale
+#else
+            //
+#endif
+        }
+    }
+
 	static func instance() -> Self {
 		func instance<T: ViewElement>() -> T {
 			let instance = T(frame: .zero)
 			instance.translatesAutoresizingMaskIntoConstraints = false
+#if canImport(UIKit)
 			instance.clipsToBounds = true
 			instance.backgroundColor = .clear
+#endif
 			return instance
 		}
 
@@ -24,14 +43,18 @@ public extension ViewElement {
 
 public extension Array where Element == ViewElement? {
 	func backgroundColor(_ color: ViewColor?) {
+#if canImport(UIKit)
 		for element in self {
 			element?.backgroundColor = color
 		}
+#endif
 	}
 
 	func backgroundColor(_ colors: [ViewColor]) {
+#if canImport(UIKit)
 		for (element, color) in zip(self, colors) {
 			element?.backgroundColor = color
 		}
+#endif
 	}
 }

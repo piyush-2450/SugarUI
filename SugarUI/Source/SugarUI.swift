@@ -23,7 +23,7 @@
 	public typealias Unit = CGFloat
     public typealias ViewController = NSViewController
     public typealias ViewElement = NSView
-	public typealias ViewColor = UIColor
+	public typealias ViewColor = NSColor
     public typealias LayoutConstraint = NSLayoutConstraint
     public typealias LayoutPriority = NSLayoutConstraint.Priority
 	public typealias HorizontalAnchor = NSLayoutXAxisAnchor

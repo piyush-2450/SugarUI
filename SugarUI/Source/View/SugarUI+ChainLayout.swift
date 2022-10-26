@@ -16,8 +16,8 @@ public extension ViewElement {
 		if let view = view {
 			switch chainVector.direction {
 			case .vertical:
-				constraint = view.topAnchor(safeArea)
-					.constraint(to: bottomAnchor(safeArea),
+				constraint = view.headAnchor(safeArea)
+					.constraint(to: footAnchor(safeArea),
 								chainVector.constraint)
 			case .horizontal:
 				constraint = view.leadAnchor(safeArea)

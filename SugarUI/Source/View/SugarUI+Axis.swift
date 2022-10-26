@@ -25,20 +25,20 @@ public extension ViewElement {
 		}
 		
 		public static var vertical: AxisVector {
-			return vertical()
+			vertical()
 		}
 		
 		public static var horizontal: AxisVector {
-			return horizontal()
+			horizontal()
 		}
 		
 		public static func vertical(_ constraint: Constraint = .equal) -> AxisVector {
-			return .init(.vertical,
+			.init(.vertical,
 						 constraint)
 		}
 		
 		public static func horizontal(_ constraint: Constraint = .equal) -> AxisVector {
-			return .init(.horizontal,
+			.init(.horizontal,
 						 constraint)
 		}
 	}
@@ -70,6 +70,6 @@ public extension ViewElement {
 
 public extension Array where Element == ViewElement.Axis {
 	static var all: [ViewElement.Axis] {
-		return ViewElement.Axis.all
+		ViewElement.Axis.all
 	}
 }

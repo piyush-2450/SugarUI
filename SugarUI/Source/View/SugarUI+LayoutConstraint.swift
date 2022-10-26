@@ -37,7 +37,7 @@ private extension NSObject {
 public extension HorizontalAnchor {
 	func constraint(to anchor: HorizontalAnchor,
 					_ viewConstraint: ViewElement.Constraint) -> LayoutConstraint {
-		return constraintTo(anchor,
+		constraintTo(anchor,
 							viewConstraint)
 	}
 }
@@ -45,7 +45,7 @@ public extension HorizontalAnchor {
 public extension VerticalAnchor {
 	func constraint(to anchor: VerticalAnchor,
 					_ viewConstraint: ViewElement.Constraint) -> LayoutConstraint {
-		return constraintTo(anchor,
+		constraintTo(anchor,
 							viewConstraint)
 	}
 }

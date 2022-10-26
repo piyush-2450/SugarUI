@@ -42,21 +42,21 @@ public extension ViewElement {
 		}
 
 		public static var equal: Constraint {
-			return .equal()
+			.equal()
 		}
 
 		public static var greater: Constraint {
-			return .greater()
+			.greater()
 		}
 
 		public static var lesser: Constraint {
-			return .lesser()
+			.lesser()
 		}
 
 		public static func equal(_ constant: Unit = .zero,
 								 _ priority: LayoutPriority = .required,
 								 _ activate: Bool = true) -> Constraint {
-			return .init(.equal,
+			.init(.equal,
 						 constant,
 						 priority,
 						 activate)
@@ -65,7 +65,7 @@ public extension ViewElement {
 		public static func greater(_ constant: Unit = .zero,
 								   _ priority: LayoutPriority = .required,
 								   _ activate: Bool = true) -> Constraint {
-			return .init(.greater,
+			.init(.greater,
 						 constant,
 						 priority,
 						 activate)
@@ -74,18 +74,18 @@ public extension ViewElement {
 		public static func lesser(_ constant: Unit = .zero,
 								  _ priority: LayoutPriority = .required,
 								  _ activate: Bool = true) -> Constraint {
-			return .init(.lesser,
+			.init(.lesser,
 						 constant,
 						 priority,
 						 activate)
 		}
 
 		public static prefix func -<(_ constraint: Constraint) -> Constraint {
-			return .lesser(constraint.constant)
+			.lesser(constraint.constant)
 		}
 
 		public static prefix func >-(_ constraint: Constraint) -> Constraint {
-			return .greater(constraint.constant)
+			.greater(constraint.constant)
 		}
 	}
 }

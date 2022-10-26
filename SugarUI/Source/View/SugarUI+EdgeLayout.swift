@@ -24,12 +24,12 @@ public extension ViewElement {
 					.constraint(to: subview.trailAnchor(safeArea),
 								axisConstraint)
 			case (.top, let axisConstraint):
-				constraint = subview.topAnchor(safeArea)
-					.constraint(to: topAnchor(safeArea),
+				constraint = subview.headAnchor(safeArea)
+					.constraint(to: headAnchor(safeArea),
 								axisConstraint)
 			case (.bottom, let axisConstraint):
-				constraint = bottomAnchor(safeArea)
-					.constraint(to: subview.bottomAnchor(safeArea),
+				constraint = footAnchor(safeArea)
+					.constraint(to: subview.footAnchor(safeArea),
 								axisConstraint)
 			}
 		}

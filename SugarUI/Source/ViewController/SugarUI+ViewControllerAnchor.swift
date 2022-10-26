@@ -8,42 +8,42 @@
 
 public extension ViewController {
 	var leadAnchor: HorizontalAnchor {
-		return leadAnchor()
+		leadAnchor()
 	}
 
 	var trailAnchor: HorizontalAnchor {
-		return trailAnchor()
+		trailAnchor()
 	}
 
-	var topAnchor: VerticalAnchor {
-		return topAnchor()
+	var headAnchor: VerticalAnchor {
+		headAnchor()
 	}
 
-	var bottomAnchor: VerticalAnchor {
-		return bottomAnchor()
+	var footAnchor: VerticalAnchor {
+		footAnchor()
 	}
 
 	var horizontalCenterAnchor: HorizontalAnchor {
-		return view.horizontalCenterAnchor
+		view.horizontalCenterAnchor
 	}
 
 	var verticalCenterAnchor: VerticalAnchor {
-		return view.verticalCenterAnchor
+		view.verticalCenterAnchor
 	}
 
 	func leadAnchor(_ safeArea: Bool = false) -> HorizontalAnchor {
-		return view.leadAnchor(safeArea)
+		view.leadAnchor(safeArea)
 	}
 
 	func trailAnchor(_ safeArea: Bool = false) -> HorizontalAnchor {
-		return view.trailAnchor(safeArea)
+		view.trailAnchor(safeArea)
 	}
 
-	func topAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
-		return view.topAnchor(safeArea)
+	func headAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
+		view.headAnchor(safeArea)
 	}
 
-	func bottomAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
-		return view.bottomAnchor(safeArea)
+	func footAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
+		view.footAnchor(safeArea)
 	}
 }

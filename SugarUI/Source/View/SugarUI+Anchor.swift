@@ -8,27 +8,27 @@
 
 public extension ViewElement {
 	var leadAnchor: HorizontalAnchor {
-		return leadAnchor()
+		leadAnchor()
 	}
 
 	var trailAnchor: HorizontalAnchor {
-		return trailAnchor()
+		trailAnchor()
 	}
 
-	var topAnchor: VerticalAnchor {
-		return topAnchor()
+	var headAnchor: VerticalAnchor {
+		headAnchor()
 	}
 
-	var bottomAnchor: VerticalAnchor {
-		return bottomAnchor()
+	var footAnchor: VerticalAnchor {
+		footAnchor()
 	}
 
 	var horizontalCenterAnchor: HorizontalAnchor {
-		return centerXAnchor
+		centerXAnchor
 	}
 
 	var verticalCenterAnchor: VerticalAnchor {
-		return centerYAnchor
+		centerYAnchor
 	}
 
 	func leadAnchor(_ safeArea: Bool = false) -> HorizontalAnchor {
@@ -53,7 +53,7 @@ public extension ViewElement {
 		return anchor
 	}
 	
-	func topAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
+	func headAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
 		var anchor = topAnchor
 		
 		if safeArea == true,
@@ -64,7 +64,7 @@ public extension ViewElement {
 		return anchor
 	}
 
-	func bottomAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
+	func footAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
 		var anchor = bottomAnchor
 
 		if safeArea == true,

@@ -12,9 +12,9 @@ public extension ViewController {
 			   _ chainVector: ViewElement.ChainVector,
 			   _ padding: ViewElement.Constraint = .equal,
 			   safeArea: Bool = true) -> [ViewElement.EdgeConstraints?]? {
-		return view.embed(subviews,
-						  chainVector,
-						  padding,
-						  safeArea: safeArea)
+        view.embed(subviews,
+                   chainVector,
+                   padding,
+                   safeArea: safeArea)
 	}
 }

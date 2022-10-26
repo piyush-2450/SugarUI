@@ -25,20 +25,20 @@ public extension ViewElement {
 		}
 
 		public static var height: SizeVector {
-			return height()
+			height()
 		}
 
 		public static var width: SizeVector {
-			return width()
+			width()
 		}
 
 		public static func height(_ constraint: Constraint = .equal) -> SizeVector {
-			return .init(.height,
+			.init(.height,
 						 constraint)
 		}
 
 		public static func width(_ constraint: Constraint = .equal) -> SizeVector {
-			return .init(.width,
+			.init(.width,
 						 constraint)
 		}
 	}
@@ -70,6 +70,6 @@ public extension ViewElement {
 
 public extension Array where Element == ViewElement.Size {
 	static var all: [ViewElement.Size] {
-		return ViewElement.Size.all
+		ViewElement.Size.all
 	}
 }
