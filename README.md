@@ -15,19 +15,20 @@ var subview3: UIView?
 var subview4: UIView?
 ```
 
-## View creation
+## View instantiation
 
-Instantiation ensures that the following properties are set by default in the newly created instance
+Easy & clean instantiation. No need to specify frame, color etc.
+```swift
+// Instantiation
+superview = .instance()
+```
+
+Instantiation using ```instance()``` ensures that the following properties are set by default in the newly created instance
 ```swift
 frame = .zero
 translatesAutoresizingMaskIntoConstraints = false
 clipsToBounds = true
 backgroundColor = .clear
-```
-
-```swift
-// Instantiation
-superview = .instance()
 ```
 
 ## Subview addition
