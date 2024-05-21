@@ -13,17 +13,17 @@ import AppKit
 #endif
 
 public extension ViewElement {
-    var colorBackground: ViewColor {
+    var colorBackground: ViewColor? {
         get {
 #if canImport(UIKit)
             backgroundColor
 #else
-            .clear
+            nil
 #endif
         }
         set {
 #if canImport(UIKit)
-            backgroundColor = newVale
+            backgroundColor = newValue
 #else
             //
 #endif
