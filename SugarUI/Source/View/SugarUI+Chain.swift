@@ -6,6 +6,12 @@
 //  Copyright © 2020 Piyush Banerjee. All rights reserved.
 //
 
+#if canImport(UIKit)
+import UIKit
+#elseif os(OSX)
+import AppKit
+#endif
+
 public extension ViewElement {
 	enum ChainDirection {
 		case vertical
