@@ -2,8 +2,8 @@
 //  SugarUI+ChainLayout.swift
 //  SugarUI
 //
-//  Created by Piyush Banerjee on 06-Mar-2020.
-//  Copyright © 2020 Piyush Banerjee. All rights reserved.
+//  Created by Piyush Banerjee on 06-Mar-2022.
+//  Copyright © 2022 Piyush Banerjee. All rights reserved.
 //
 
 #if canImport(UIKit)
