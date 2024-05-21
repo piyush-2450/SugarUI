@@ -13,6 +13,7 @@ import AppKit
 #endif
 
 public extension ViewElement {
+	@inlinable
     var colorBackground: ViewColor? {
         get {
 #if canImport(UIKit)
@@ -30,6 +31,7 @@ public extension ViewElement {
         }
     }
 
+	@inlinable
 	static func instance() -> Self {
 		func instance<T: ViewElement>() -> T {
 			let instance = T(frame: .zero)
@@ -48,6 +50,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement? {
+	@inlinable
 	func backgroundColor(_ color: ViewColor?) {
 #if canImport(UIKit)
 		for element in self {
@@ -56,6 +59,7 @@ public extension Array where Element == ViewElement? {
 #endif
 	}
 
+	@inlinable
 	func backgroundColor(_ colors: [ViewColor]) {
 #if canImport(UIKit)
 		for (element, color) in zip(self, colors) {

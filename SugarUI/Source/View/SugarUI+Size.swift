@@ -30,10 +30,12 @@ public extension ViewElement {
 			self.constraint = constraint
 		}
 
+		@inlinable
 		public static var height: SizeVector {
 			height()
 		}
 
+		@inlinable
 		public static var width: SizeVector {
 			width()
 		}
@@ -75,6 +77,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement.Size {
+	@inlinable
 	static var all: [ViewElement.Size] {
 		ViewElement.Size.all
 	}

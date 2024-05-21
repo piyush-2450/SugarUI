@@ -112,6 +112,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement? {
+	@inlinable
 	@discardableResult
 	func align(_ subview: ViewElement?,
 			   _ edgeVector: ViewElement.EdgeVector,
@@ -133,6 +134,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func align(_ subview: ViewElement?,
 			   _ edgeVectors: [ViewElement.EdgeVector],
@@ -154,6 +156,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func align(_ subview: ViewElement?,
 			   _ edges: [ViewElement.Edge] = .all,

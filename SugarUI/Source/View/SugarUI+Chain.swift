@@ -28,10 +28,12 @@ public extension ViewElement {
 			self.constraint = constraint
 		}
 
+		@inlinable
 		public static var vertical: ChainVector {
 			vertical()
 		}
 
+		@inlinable
 		public static var horizontal: ChainVector {
 			horizontal()
 		}

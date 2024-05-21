@@ -129,6 +129,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement? {
+	@inlinable
 	@discardableResult
 	func center(_ view: ViewElement?,
 				_ axisVector: ViewElement.AxisVector) -> [LayoutConstraint?]? {
@@ -148,6 +149,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func center(_ view: ViewElement?,
 				_ axisVectors: [ViewElement.AxisVector]) -> [ViewElement.AxisConstraints?]? {
@@ -167,6 +169,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func center(_ view: ViewElement?,
 				_ axes: [ViewElement.Axis] = .all,
@@ -188,6 +191,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func centerViews(_ axis: ViewElement.Axis,
 					 _ constraint: ViewElement.Constraint = .equal) -> [LayoutConstraint?]? {

@@ -6,31 +6,44 @@
 //  Copyright © 2022 Piyush Banerjee. All rights reserved.
 //
 
+#if canImport(UIKit)
+import UIKit
+#elseif os(OSX)
+import AppKit
+#endif
+
 public extension ViewElement {
+	@inlinable
 	var leadAnchor: HorizontalAnchor {
 		leadAnchor()
 	}
 
+	@inlinable
 	var trailAnchor: HorizontalAnchor {
 		trailAnchor()
 	}
 
+	@inlinable
 	var headAnchor: VerticalAnchor {
 		headAnchor()
 	}
 
+	@inlinable
 	var footAnchor: VerticalAnchor {
 		footAnchor()
 	}
 
+	@inlinable
 	var horizontalCenterAnchor: HorizontalAnchor {
 		centerXAnchor
 	}
 
+	@inlinable
 	var verticalCenterAnchor: VerticalAnchor {
 		centerYAnchor
 	}
 
+	@inlinable
 	func leadAnchor(_ safeArea: Bool = false) -> HorizontalAnchor {
 		var anchor = leadingAnchor
 		
@@ -42,6 +55,7 @@ public extension ViewElement {
 		return anchor
 	}
 	
+	@inlinable
 	func trailAnchor(_ safeArea: Bool = false) -> HorizontalAnchor {
 		var anchor = trailingAnchor
 		
@@ -53,6 +67,7 @@ public extension ViewElement {
 		return anchor
 	}
 	
+	@inlinable
 	func headAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
 		var anchor = topAnchor
 		
@@ -64,6 +79,7 @@ public extension ViewElement {
 		return anchor
 	}
 
+	@inlinable
 	func footAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
 		var anchor = bottomAnchor
 

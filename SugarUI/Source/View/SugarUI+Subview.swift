@@ -71,14 +71,16 @@ public extension ViewElement {
 					 padding)
 	}
 
-	// MARK: Internal scope
+	// MARK: Public scope
 
+	@inlinable
 	func add(_ subview: ViewElement?) {
 		if let subview = subview {
 			addSubview(subview)
 		}
 	}
 
+	@inlinable
 	func add(_ subviews: [ViewElement?]?) {
 		if let subviews = subviews {
 			for subview in subviews {
@@ -87,6 +89,7 @@ public extension ViewElement {
 		}
 	}
 
+	@inlinable
 	@discardableResult
 	func embed(_ subview: ViewElement?,
 			   _ constraint: ViewElement.Constraint = .equal,
@@ -98,6 +101,7 @@ public extension ViewElement {
 					 safeArea: safeArea)
 	}
 
+	@inlinable
 	@discardableResult
 	func embed(_ subview: ViewElement?,
 			   _ edgeVectors: [EdgeVector],

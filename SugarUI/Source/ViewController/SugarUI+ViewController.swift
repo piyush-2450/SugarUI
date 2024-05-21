@@ -6,7 +6,14 @@
 //  Copyright © 2022 Piyush Banerjee. All rights reserved.
 //
 
+#if canImport(UIKit)
+import UIKit
+#elseif os(OSX)
+import AppKit
+#endif
+
 public extension ViewController {
+	@inlinable
 	@discardableResult
 	func embed(_ subviews: [ViewElement?]?,
 			   _ chainVector: ViewElement.ChainVector,

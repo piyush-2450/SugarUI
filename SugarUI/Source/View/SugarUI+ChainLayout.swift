@@ -35,6 +35,7 @@ public extension ViewElement {
 		return constraint
 	}
 
+	@inlinable
 	@discardableResult
 	class func chain(_ views: [ViewElement?]?,
 					 _ chainVector: ChainVector,
@@ -64,6 +65,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement? {
+	@inlinable
 	@discardableResult
 	func chain(_ view: ViewElement?,
 			   _ chainVector: ViewElement.ChainVector,

@@ -34,18 +34,22 @@ public extension ViewElement {
 			self.constraint = constraint
 		}
 
+		@inlinable
 		public static var lead: EdgeVector {
 			lead()
 		}
 
+		@inlinable
 		public static var trail: EdgeVector {
 			trail()
 		}
 
+		@inlinable
 		public static var top: EdgeVector {
 			top()
 		}
 
+		@inlinable
 		public static var bottom: EdgeVector {
 			bottom()
 		}
@@ -105,6 +109,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement.Edge {
+	@inlinable
 	static var all: [ViewElement.Edge] {
 		ViewElement.Edge.all
 	}

@@ -87,6 +87,7 @@ public extension ViewElement {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func matchSize(_ view: ViewElement?,
 				   _ constraint: Constraint = .equal) -> SizeConstraints? {
@@ -173,6 +174,7 @@ public extension ViewElement {
 		return constraint
 	}
 
+	@inlinable
 	@discardableResult
 	func height(_ sizeConstraints: [Constraint]) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
@@ -200,6 +202,7 @@ public extension ViewElement {
 		return constraint
 	}
 
+	@inlinable
 	@discardableResult
 	func width(_ sizeConstraints: [Constraint]) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
@@ -220,6 +223,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement? {
+	@inlinable
 	@discardableResult
 	func matchSize(_ view: ViewElement?,
 				   _ sizeVector: ViewElement.SizeVector) -> [LayoutConstraint?]? {
@@ -239,6 +243,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func matchSize(_ view: ViewElement?,
 				   _ sizeVectors: [ViewElement.SizeVector]) -> [ViewElement.SizeConstraints?]? {
@@ -258,6 +263,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func matchSize(_ view: ViewElement?,
 				   _ sizes: [ViewElement.Size] = .all,
@@ -278,6 +284,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func matchSizes(_ sizes: [ViewElement.Size] = .all,
 					_ constraint: ViewElement.Constraint = .equal) -> [ViewElement.SizeConstraints?]? {
@@ -299,6 +306,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func fixSize(_ sizeVector: ViewElement.SizeVector) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
@@ -315,6 +323,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func fixSize(_ sizeVectors: [ViewElement.SizeVector]) -> [ViewElement.SizeConstraints?]? {
 		var constraints: [ViewElement.SizeConstraints?]?
@@ -331,6 +340,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func fixSize(_ sizes: [ViewElement.Size] = .all,
 				 _ constraint: ViewElement.Constraint) -> [ViewElement.SizeConstraints?]? {
@@ -349,6 +359,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func fixSizes(_ constraint: ViewElement.Constraint = .equal) -> [ViewElement.SizeConstraints?]? {
 		var constraints: [ViewElement.SizeConstraints?]?
@@ -366,6 +377,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func height(_ sizeConstraint: ViewElement.Constraint) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
@@ -382,6 +394,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@inlinable
 	@discardableResult
 	func width(_ sizeConstraint: ViewElement.Constraint) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?

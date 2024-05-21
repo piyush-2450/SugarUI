@@ -30,10 +30,12 @@ public extension ViewElement {
 			self.constraint = constraint
 		}
 		
+		@inlinable
 		public static var vertical: AxisVector {
 			vertical()
 		}
 		
+		@inlinable
 		public static var horizontal: AxisVector {
 			horizontal()
 		}
@@ -75,6 +77,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement.Axis {
+	@inlinable
 	static var all: [ViewElement.Axis] {
 		ViewElement.Axis.all
 	}

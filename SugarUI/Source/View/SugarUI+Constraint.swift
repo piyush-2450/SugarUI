@@ -16,7 +16,8 @@ prefix operator >-
 prefix operator -<
 
 public extension ViewElement {
-	struct Constraint: ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
+	struct Constraint: ExpressibleByIntegerLiteral,
+					   ExpressibleByFloatLiteral {
 		public enum Relation {
 			case equal
 			case greater
@@ -47,14 +48,17 @@ public extension ViewElement {
 					  Unit(value))
 		}
 
+		@inlinable
 		public static var equal: Constraint {
 			.equal()
 		}
 
+		@inlinable
 		public static var greater: Constraint {
 			.greater()
 		}
 
+		@inlinable
 		public static var lesser: Constraint {
 			.lesser()
 		}
