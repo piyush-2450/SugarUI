@@ -19,9 +19,9 @@ public extension ViewElement {
 		case top
 		case bottom
 
-		public static let all: [Edge] = Edge.horizontalEdges + Edge.verticalEdges
-		public static let verticalEdges: [Edge] = [.top, .bottom]
-		public static let horizontalEdges: [Edge] = [.lead, .trail]
+		@MainActor public static let all: [Edge] = Edge.horizontalEdges + Edge.verticalEdges
+		@MainActor public static let verticalEdges: [Edge] = [.top, .bottom]
+		@MainActor public static let horizontalEdges: [Edge] = [.lead, .trail]
 	}
 
 	struct EdgeVector {
@@ -81,6 +81,7 @@ public extension ViewElement {
 		var top: LayoutConstraint?
 		var bottom: LayoutConstraint?
 
+		@MainActor
 		var activate: Bool = false {
 			didSet {
 				lead?.isActive = activate
@@ -109,6 +110,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement.Edge {
+	@MainActor
 	@inlinable
 	static var all: [ViewElement.Edge] {
 		ViewElement.Edge.all

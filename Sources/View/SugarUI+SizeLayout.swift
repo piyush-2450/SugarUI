@@ -223,6 +223,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement? {
+	@MainActor
 	@inlinable
 	@discardableResult
 	func matchSize(_ view: ViewElement?,
@@ -243,6 +244,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func matchSize(_ view: ViewElement?,
@@ -263,6 +265,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func matchSize(_ view: ViewElement?,
@@ -284,6 +287,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func matchSizes(_ sizes: [ViewElement.Size] = .all,
@@ -306,6 +310,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func fixSize(_ sizeVector: ViewElement.SizeVector) -> [LayoutConstraint?]? {
@@ -323,6 +328,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func fixSize(_ sizeVectors: [ViewElement.SizeVector]) -> [ViewElement.SizeConstraints?]? {
@@ -340,6 +346,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func fixSize(_ sizes: [ViewElement.Size] = .all,
@@ -359,6 +366,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func fixSizes(_ constraint: ViewElement.Constraint = .equal) -> [ViewElement.SizeConstraints?]? {
@@ -377,6 +385,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func height(_ sizeConstraint: ViewElement.Constraint) -> [LayoutConstraint?]? {
@@ -394,6 +403,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func width(_ sizeConstraint: ViewElement.Constraint) -> [LayoutConstraint?]? {

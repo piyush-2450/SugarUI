@@ -17,7 +17,7 @@ public extension ViewElement {
 		case vertical
 		case horizontal
 		
-		public static let all: [Axis] = [.vertical, .horizontal]
+		@MainActor public static let all: [Axis] = [.vertical, .horizontal]
 	}
 	
 	struct AxisVector {
@@ -54,7 +54,8 @@ public extension ViewElement {
 	struct AxisConstraints {
 		var vertical: LayoutConstraint?
 		var horizontal: LayoutConstraint?
-		
+
+		@MainActor
 		var activate: Bool = false {
 			didSet {
 				vertical?.isActive = activate
@@ -77,6 +78,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement.Axis {
+	@MainActor
 	@inlinable
 	static var all: [ViewElement.Axis] {
 		ViewElement.Axis.all

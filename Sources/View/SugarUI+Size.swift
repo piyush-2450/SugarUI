@@ -17,7 +17,7 @@ public extension ViewElement {
 		case height
 		case width
 
-		public static let all: [Size] = [.height, .width]
+		@MainActor public static let all: [Size] = [.height, .width]
 	}
 
 	struct SizeVector {
@@ -55,6 +55,7 @@ public extension ViewElement {
 		var height: LayoutConstraint?
 		var width: LayoutConstraint?
 
+		@MainActor
 		var activate: Bool = false {
 			didSet {
 				height?.isActive = activate
@@ -77,6 +78,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement.Size {
+	@MainActor
 	@inlinable
 	static var all: [ViewElement.Size] {
 		ViewElement.Size.all

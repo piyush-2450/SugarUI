@@ -112,6 +112,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement? {
+	@MainActor
 	@inlinable
 	@discardableResult
 	func align(_ subview: ViewElement?,
@@ -134,6 +135,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func align(_ subview: ViewElement?,
@@ -156,6 +158,7 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	@MainActor
 	@inlinable
 	@discardableResult
 	func align(_ subview: ViewElement?,

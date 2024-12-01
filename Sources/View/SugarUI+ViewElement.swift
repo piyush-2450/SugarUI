@@ -50,6 +50,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement? {
+	@MainActor
 	@inlinable
 	func backgroundColor(_ color: ViewColor?) {
 #if canImport(UIKit)
@@ -59,6 +60,7 @@ public extension Array where Element == ViewElement? {
 #endif
 	}
 
+	@MainActor
 	@inlinable
 	func backgroundColor(_ colors: [ViewColor]) {
 #if canImport(UIKit)

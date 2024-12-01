@@ -65,6 +65,7 @@ public extension ViewElement {
 // MARK: - Array sweetness
 
 public extension Array where Element == ViewElement? {
+	@MainActor
 	@inlinable
 	@discardableResult
 	func chain(_ view: ViewElement?,

@@ -6,7 +6,14 @@
 //  Copyright © 2022 Piyush Banerjee. All rights reserved.
 //
 
+#if canImport(UIKit)
+import UIKit
+#elseif os(OSX)
+import AppKit
+#endif
+
 private extension NSObject {
+	@MainActor
 	func constraintTo(_ object: NSObject,
 					  _ viewConstraint: ViewElement.Constraint) -> LayoutConstraint {
 		var constraint: LayoutConstraint!
@@ -35,6 +42,7 @@ private extension NSObject {
 }
 
 public extension HorizontalAnchor {
+	@MainActor
 	func constraint(to anchor: HorizontalAnchor,
 					_ viewConstraint: ViewElement.Constraint) -> LayoutConstraint {
 		constraintTo(anchor,
@@ -43,6 +51,7 @@ public extension HorizontalAnchor {
 }
 
 public extension VerticalAnchor {
+	@MainActor
 	func constraint(to anchor: VerticalAnchor,
 					_ viewConstraint: ViewElement.Constraint) -> LayoutConstraint {
 		constraintTo(anchor,
@@ -51,6 +60,7 @@ public extension VerticalAnchor {
 }
 
 public extension LayoutDimension {
+	@MainActor
 	func constraint(to anchor: LayoutDimension? = nil,
 					_ viewConstraint: ViewElement.Constraint) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
