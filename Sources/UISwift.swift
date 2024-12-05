@@ -1,6 +1,6 @@
 //
-//  SugarUI.swift
-//  SugarUI
+//  UISwift.swift
+//  UISwift
 //
 //  Created by Piyush Banerjee on 06-Mar-2022.
 //  Copyright © 2022 Piyush Banerjee. All rights reserved.
@@ -34,7 +34,7 @@ public typealias LayoutDimension = NSLayoutDimension
 #error("Unsupported platform")
 #endif
 
-public protocol SugarUIView {
+public protocol UISwiftView {
 	@inlinable
 	var bgColor: ViewColor? { get set }
 

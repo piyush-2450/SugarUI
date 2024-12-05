@@ -4,24 +4,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "SugarUI",
+    name: "UISwift",
 	platforms: [
 		.iOS(.v12),
 		.macOS(.v12)
 	],
     products: [
         .library(
-            name: "SugarUI",
-            targets: ["SugarUI"]
+            name: "UISwift",
+            targets: ["UISwift"]
 		),
     ],
     targets: [
         .target(
-            name: "SugarUI"
+            name: "UISwift"
 		),
         .testTarget(
-            name: "SugarUITests",
-            dependencies: ["SugarUI"]
+            name: "UISwiftTests",
+            dependencies: ["UISwift"]
         ),
     ]
 )

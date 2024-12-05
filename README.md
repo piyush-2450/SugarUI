@@ -1,8 +1,8 @@
-# SugarUI
+# UISwift
 
 Makes it easier to create programmatic iOS UI layouts. Provides high level sugary Swift APIs which are Optional friendly.
 
-Let's consider the following views to explore UIView sweetness provided by SugarUI:
+Let's consider the following views to explore UIView sweetness provided by UISwift:
 
 ```swift
 // Superview

@@ -1,6 +1,6 @@
 //
-//  SugarUI+ViewController.swift
-//  SugarUI
+//  UISwift+ViewController.swift
+//  UISwift
 //
 //  Created by Piyush Banerjee on 06-Mar-2022.
 //  Copyright © 2022 Piyush Banerjee. All rights reserved.
@@ -12,7 +12,7 @@ import UIKit
 import AppKit
 #endif
 
-extension ViewController: @preconcurrency SugarUIView {
+extension ViewController: @preconcurrency UISwiftView {
 	@inlinable
 	public var bgColor: ViewColor? {
 		get {

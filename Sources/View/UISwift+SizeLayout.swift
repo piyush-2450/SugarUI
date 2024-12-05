@@ -1,6 +1,6 @@
 //
-//  SugarUI+SizeLayout.swift
-//  SugarUI
+//  UISwift+SizeLayout.swift
+//  UISwift
 //
 //  Created by Piyush Banerjee on 06-Mar-2022.
 //  Copyright © 2022 Piyush Banerjee. All rights reserved.
