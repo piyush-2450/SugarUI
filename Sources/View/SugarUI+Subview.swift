@@ -17,10 +17,9 @@ public extension ViewElement {
 
 	private typealias EdgeConstraint = (edge: Edge, constraint: LayoutConstraint?)
 
-	private func alignBeginingEdge(_ view: ViewElement?,
-								   _ chainVector: ChainVector,
-								   _ padding: ViewElement.Constraint,
-								   safeArea: Bool) -> EdgeConstraint {
+	private func alignBeginningEdge(_ view: ViewElement?,
+									_ chainVector: ChainVector,
+									_ padding: ViewElement.Constraint) -> EdgeConstraint {
 		var edge = Edge.top
 
 		switch chainVector.direction {
@@ -31,14 +30,12 @@ public extension ViewElement {
 		}
 
 		return (edge, align(view,
-							.init(edge, padding),
-							safeArea: safeArea))
+							.init(edge, padding)))
 	}
 
 	private func alignEndingEdge(_ view: ViewElement?,
 								 _ chainVector: ChainVector,
-								 _ padding: ViewElement.Constraint,
-								 safeArea: Bool) -> EdgeConstraint {
+								 _ padding: ViewElement.Constraint) -> EdgeConstraint {
 		var edge = Edge.bottom
 
 		switch chainVector.direction {
@@ -49,14 +46,12 @@ public extension ViewElement {
 		}
 
 		return (edge, align(view,
-							.init(edge, padding),
-							safeArea: safeArea))
+							.init(edge, padding)))
 	}
 
 	private func alignOtherEdges(_ view: ViewElement?,
 								 _ chainVector: ChainVector,
-								 _ padding: ViewElement.Constraint,
-								 safeArea: Bool) -> EdgeConstraints? {
+								 _ padding: ViewElement.Constraint) -> EdgeConstraints? {
 		var edges: [Edge] = [.lead, .trail]
 
 		switch chainVector.direction {
@@ -92,35 +87,30 @@ public extension ViewElement {
 	@inlinable
 	@discardableResult
 	func embed(_ subview: ViewElement?,
-			   _ constraint: ViewElement.Constraint = .equal,
-			   safeArea: Bool = false) -> EdgeConstraints? {
+			   _ constraint: ViewElement.Constraint = .equal) -> EdgeConstraints? {
 		add(subview)
 		return align(subview,
 					 .all,
-					 constraint,
-					 safeArea: safeArea)
+					 constraint)
 	}
 
 	@inlinable
 	@discardableResult
 	func embed(_ subview: ViewElement?,
-			   _ edgeVectors: [EdgeVector],
-			   safeArea: Bool = false) -> EdgeConstraints? {
+			   _ edgeVectors: [EdgeVector]) -> EdgeConstraints? {
 		add(subview)
 		return align(subview,
-					 edgeVectors,
-					 safeArea: safeArea)
+					 edgeVectors)
 	}
 
 	@discardableResult
 	func embed(_ subviews: [ViewElement?]?,
 			   _ chainVector: ChainVector,
-			   _ padding: ViewElement.Constraint = .equal,
-			   safeArea: Bool = false) -> [EdgeConstraints?]? {
+			   _ padding: ViewElement.Constraint = .equal) -> [EdgeConstraints?]? {
 		var constraints: [EdgeConstraints?]?
 
 		if let subviews = subviews,
-			subviews.count > 0 {
+		   subviews.count > 0 {
 			add(subviews)
 
 			constraints = []
@@ -130,29 +120,25 @@ public extension ViewElement {
 			for view in subviews {
 				var edgeConstraints = alignOtherEdges(view,
 													  chainVector,
-													  padding,
-													  safeArea: safeArea)
+													  padding)
 
 				if view == subviews.first {
-					let result = alignBeginingEdge(view,
-												   chainVector,
-												   padding,
-												   safeArea: safeArea)
+					let result = alignBeginningEdge(view,
+													chainVector,
+													padding)
 					edgeConstraints?.set(result.edge, result.constraint)
 				}
 
 				if view == subviews.last {
 					let result = alignEndingEdge(view,
 												 chainVector,
-												 padding,
-												 safeArea: safeArea)
+												 padding)
 					edgeConstraints?.set(result.edge, result.constraint)
 				}
 
 				if let constraint = previousView?
 					.chain(view,
-						   chainVector,
-						   safeArea: safeArea) {
+						   chainVector) {
 					switch chainVector.direction {
 					case .vertical:
 						edgeConstraints?.top = constraint

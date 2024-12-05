@@ -15,22 +15,22 @@ import AppKit
 public extension ViewElement {
 	@inlinable
 	var leadAnchor: HorizontalAnchor {
-		leadAnchor()
+		safeAreaLayoutGuide.leadingAnchor
 	}
 
 	@inlinable
 	var trailAnchor: HorizontalAnchor {
-		trailAnchor()
+		safeAreaLayoutGuide.trailingAnchor
 	}
 
 	@inlinable
 	var headAnchor: VerticalAnchor {
-		headAnchor()
+		safeAreaLayoutGuide.topAnchor
 	}
 
 	@inlinable
 	var footAnchor: VerticalAnchor {
-		footAnchor()
+		safeAreaLayoutGuide.bottomAnchor
 	}
 
 	@inlinable
@@ -41,53 +41,5 @@ public extension ViewElement {
 	@inlinable
 	var verticalCenterAnchor: VerticalAnchor {
 		centerYAnchor
-	}
-
-	@inlinable
-	func leadAnchor(_ safeArea: Bool = false) -> HorizontalAnchor {
-		var anchor = leadingAnchor
-		
-		if safeArea == true,
-			#available(iOS 11.0, *) {
-			anchor = safeAreaLayoutGuide.leadingAnchor
-		}
-		
-		return anchor
-	}
-	
-	@inlinable
-	func trailAnchor(_ safeArea: Bool = false) -> HorizontalAnchor {
-		var anchor = trailingAnchor
-		
-		if safeArea == true,
-			#available(iOS 11.0, *) {
-			anchor = safeAreaLayoutGuide.trailingAnchor
-		}
-		
-		return anchor
-	}
-	
-	@inlinable
-	func headAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
-		var anchor = topAnchor
-		
-		if safeArea == true,
-			#available(iOS 11.0, *) {
-			anchor = safeAreaLayoutGuide.topAnchor
-		}
-		
-		return anchor
-	}
-
-	@inlinable
-	func footAnchor(_ safeArea: Bool = false) -> VerticalAnchor {
-		var anchor = bottomAnchor
-
-		if safeArea == true,
-			#available(iOS 11.0, *) {
-			anchor = safeAreaLayoutGuide.bottomAnchor
-		}
-
-		return anchor
 	}
 }

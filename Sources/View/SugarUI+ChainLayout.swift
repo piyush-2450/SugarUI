@@ -15,19 +15,18 @@ import AppKit
 public extension ViewElement {
 	@discardableResult
 	func chain(_ view: ViewElement?,
-			   _ chainVector: ChainVector,
-			   safeArea: Bool = false) -> LayoutConstraint? {
+			   _ chainVector: ChainVector) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
 
 		if let view = view {
 			switch chainVector.direction {
 			case .vertical:
-				constraint = view.headAnchor(safeArea)
-					.constraint(to: footAnchor(safeArea),
+				constraint = view.headAnchor
+					.constraint(to: footAnchor,
 								chainVector.constraint)
 			case .horizontal:
-				constraint = view.leadAnchor(safeArea)
-					.constraint(to: trailAnchor(safeArea),
+				constraint = view.leadAnchor
+					.constraint(to: trailAnchor,
 								chainVector.constraint)
 			}
 		}
@@ -38,8 +37,7 @@ public extension ViewElement {
 	@inlinable
 	@discardableResult
 	class func chain(_ views: [ViewElement?]?,
-					 _ chainVector: ChainVector,
-					 safeArea: Bool = false) -> [LayoutConstraint?]? {
+					 _ chainVector: ChainVector) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
 		if let views = views,
@@ -69,8 +67,7 @@ public extension Array where Element == ViewElement? {
 	@inlinable
 	@discardableResult
 	func chain(_ view: ViewElement?,
-			   _ chainVector: ViewElement.ChainVector,
-			   safeArea: Bool = false) -> [LayoutConstraint?]? {
+			   _ chainVector: ViewElement.ChainVector) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
 		if let view = view,
@@ -79,8 +76,7 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.chain(view,
-												chainVector,
-												safeArea: safeArea)
+												chainVector)
 				constraints?.append(constraint)
 			}
 		}

@@ -12,9 +12,13 @@ import UIKit
 import AppKit
 #endif
 
+extension ViewElement: @preconcurrency SugarUIView {
+	//
+}
+
 public extension ViewElement {
 	@inlinable
-    var colorBackground: ViewColor? {
+    var bgColor: ViewColor? {
         get {
 #if canImport(UIKit)
             backgroundColor

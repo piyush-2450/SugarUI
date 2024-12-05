@@ -15,27 +15,26 @@ import AppKit
 public extension ViewElement {
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   _ edgeVector: EdgeVector,
-			   safeArea: Bool = false) -> LayoutConstraint? {
+			   _ edgeVector: EdgeVector) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
 
 		if let subview = subview {
 			switch (edgeVector.edge, edgeVector.constraint) {
 			case (.lead, let axisConstraint):
-				constraint = subview.leadAnchor(safeArea)
-					.constraint(to: leadAnchor(safeArea),
+				constraint = subview.leadAnchor
+					.constraint(to: leadAnchor,
 								axisConstraint)
 			case (.trail, let axisConstraint):
-				constraint = trailAnchor(safeArea)
-					.constraint(to: subview.trailAnchor(safeArea),
+				constraint = trailAnchor
+					.constraint(to: subview.trailAnchor,
 								axisConstraint)
 			case (.top, let axisConstraint):
-				constraint = subview.headAnchor(safeArea)
-					.constraint(to: headAnchor(safeArea),
+				constraint = subview.headAnchor
+					.constraint(to: headAnchor,
 								axisConstraint)
 			case (.bottom, let axisConstraint):
-				constraint = footAnchor(safeArea)
-					.constraint(to: subview.footAnchor(safeArea),
+				constraint = footAnchor
+					.constraint(to: subview.footAnchor,
 								axisConstraint)
 			}
 		}
@@ -45,8 +44,7 @@ public extension ViewElement {
 
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   _ edgeVectors: [EdgeVector],
-			   safeArea: Bool = false) -> EdgeConstraints? {
+			   _ edgeVectors: [EdgeVector]) -> EdgeConstraints? {
 		var constraints: EdgeConstraints?
 
 		if let subview = subview,
@@ -55,8 +53,7 @@ public extension ViewElement {
 
 			for edgeVector in edgeVectors {
 				let constraint = align(subview,
-									   edgeVector,
-									   safeArea: safeArea)
+									   edgeVector)
 
 				switch edgeVector.edge {
 				case .lead:
@@ -77,8 +74,7 @@ public extension ViewElement {
 	@discardableResult
 	func align(_ subview: ViewElement?,
 			   _ edges: [Edge] = .all,
-			   _ constraint: Constraint = .equal,
-			   safeArea: Bool = false) -> EdgeConstraints? {
+			   _ constraint: Constraint = .equal) -> EdgeConstraints? {
 		var constraints: EdgeConstraints?
 
 		if let subview = subview,
@@ -89,8 +85,7 @@ public extension ViewElement {
 				let edgeVector = EdgeVector(edge,
 											constraint)
 				let constraint = align(subview,
-									   edgeVector,
-									   safeArea: safeArea)
+									   edgeVector)
 
 				switch edgeVector.edge {
 				case .lead:
@@ -116,8 +111,7 @@ public extension Array where Element == ViewElement? {
 	@inlinable
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   _ edgeVector: ViewElement.EdgeVector,
-			   safeArea: Bool = false) -> [LayoutConstraint?]? {
+			   _ edgeVector: ViewElement.EdgeVector) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
 		if let subview = subview,
@@ -126,8 +120,7 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.align(subview,
-												edgeVector,
-												safeArea: safeArea)
+												edgeVector)
 				constraints?.append(constraint)
 			}
 		}
@@ -139,8 +132,7 @@ public extension Array where Element == ViewElement? {
 	@inlinable
 	@discardableResult
 	func align(_ subview: ViewElement?,
-			   _ edgeVectors: [ViewElement.EdgeVector],
-			   safeArea: Bool = false) -> [ViewElement.EdgeConstraints?]? {
+			   _ edgeVectors: [ViewElement.EdgeVector]) -> [ViewElement.EdgeConstraints?]? {
 		var constraints: [ViewElement.EdgeConstraints?]?
 
 		if let subview = subview,
@@ -149,8 +141,7 @@ public extension Array where Element == ViewElement? {
 
 			for element in self {
 				let constraint = element?.align(subview,
-												edgeVectors,
-												safeArea: safeArea)
+												edgeVectors)
 				constraints?.append(constraint)
 			}
 		}
@@ -163,8 +154,7 @@ public extension Array where Element == ViewElement? {
 	@discardableResult
 	func align(_ subview: ViewElement?,
 			   _ edges: [ViewElement.Edge] = .all,
-			   _ constraint: ViewElement.Constraint = .equal,
-			   safeArea: Bool = false) -> [ViewElement.EdgeConstraints?]? {
+			   _ constraint: ViewElement.Constraint = .equal) -> [ViewElement.EdgeConstraints?]? {
 		var constraints: [ViewElement.EdgeConstraints?]?
 
 		if let subview = subview,
@@ -174,8 +164,7 @@ public extension Array where Element == ViewElement? {
 			for element in self {
 				let constraint = element?.align(subview,
 												edges,
-												constraint,
-												safeArea: safeArea)
+												constraint)
 				constraints?.append(constraint)
 			}
 		}
