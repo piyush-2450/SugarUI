@@ -1,8 +1,25 @@
 # UISwift
 
-Makes it easier to create programmatic iOS UI layouts. Provides high level sugary Swift APIs which are Optional friendly.
+UISwift streamlines programmatic UI development for iOS and macOS by providing expressive, optional-friendly Swift APIs. It brings the declarative syntax of SwiftUI to UIKit and AppKit, ensuring robust performance and consistent behavior.
 
-Let's consider the following views to explore UIView sweetness provided by UISwift:
+## Features
+
+- **Declarative Syntax**: Build UIs with clear and concise code, mirroring SwiftUI's declarative style.
+- **Optional-Friendly APIs**: Seamlessly integrate with optional types, reducing the need for unwrapping.
+- **Automatic Constraint Management**: Simplify Auto Layout with intuitive methods for embedding, stacking, and centering views.
+- **Cross-Platform Support**: Utilize UISwift for both iOS (UIKit) and macOS (AppKit) development.
+
+## Installation
+
+Add UISwift to your project using Swift Package Manager:
+
+1. In Xcode, navigate to **File > Add Packages**.
+2. Enter the repository URL: `https://github.com/piyush-2450/UISwift.git`.
+3. Select the latest version and add the package to your project.
+
+## Getting Started
+
+Here's how to leverage UISwift for building UIs programmatically. Let's consider the following views to explore UIView sweetness provided by UISwift:
 
 ```swift
 // Superview
@@ -17,7 +34,7 @@ var subview4: UIView?
 
 ## View instantiation
 
-Easy & clean instantiation. No need to specify frame, color etc.
+Easy & clean instantiation. Create views effortlessly with sensible default properties. No need to specify frame, color etc.
 ```swift
 // Instantiation
 superview = .instance()
@@ -105,3 +122,15 @@ subview2?.matchSize(subview1)
 // Ensure subview2 has a height & width equal to subview1 with an offset of 20 points
 subview2?.matchSize(subview1, 20)
 ```
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request with your enhancements.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+By adopting UISwift, you can build dynamic, programmatic UIs with the simplicity of SwiftUI while maintaining the reliability and performance of UIKit and AppKit.
