@@ -63,6 +63,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		view.add(subviews)
 	}
 
+	@discardableResult
 	@inlinable
 	public func embed(
 		_ subview: ViewElement?,
@@ -74,6 +75,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func embed(
 		_ subview: ViewElement?,
@@ -85,6 +87,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func embed(
 		_ subviews: [ViewElement?]?,
@@ -98,6 +101,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func center(
 		_ view: ViewElement?,
@@ -109,6 +113,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func center(
 		_ view: ViewElement?,
@@ -120,6 +125,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func center(
 		_ view: ViewElement?,
@@ -133,6 +139,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func center(
 		_ view: ViewElement?,
@@ -146,6 +153,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func center(
 		_ views: [ViewElement?]?,
@@ -159,6 +167,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func chain(
 		_ view: ViewElement?,
@@ -181,6 +190,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func align(
 		_ subview: ViewElement?,
@@ -192,6 +202,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func align(
 		_ subview: ViewElement?,
@@ -203,6 +214,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func align(
 		_ subview: ViewElement?,
@@ -216,6 +228,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func matchSize(
 		_ view: ViewElement?,
@@ -227,6 +240,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func matchSize(
 		_ view: ViewElement?,
@@ -238,6 +252,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func matchSize(
 		_ view: ViewElement?,
@@ -251,6 +266,7 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func matchSize(
 		_ view: ViewElement?,
@@ -262,16 +278,19 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func fixSize(_ sizeVector: ViewElement.SizeVector) -> LayoutConstraint? {
 		view.fixSize(sizeVector)
 	}
 
+	@discardableResult
 	@inlinable
 	public func fixSize(_ sizeVectors: [ViewElement.SizeVector]) -> ViewElement.SizeConstraints? {
 		view.fixSize(sizeVectors)
 	}
 
+	@discardableResult
 	@inlinable
 	public func fixSize(
 		_ axes: [ViewElement.Size] = .all,
@@ -283,21 +302,25 @@ extension ViewController: @preconcurrency UISwiftView {
 		)
 	}
 
+	@discardableResult
 	@inlinable
 	public func height(_ sizeConstraint: ViewElement.Constraint = .equal) -> LayoutConstraint? {
 		view.height(sizeConstraint)
 	}
 
+	@discardableResult
 	@inlinable
 	public func height(_ sizeConstraints: [ViewElement.Constraint]) -> [LayoutConstraint?]? {
 		view.height(sizeConstraints)
 	}
 
+	@discardableResult
 	@inlinable
 	public func width(_ sizeConstraint: ViewElement.Constraint = .equal) -> LayoutConstraint? {
 		view.width(sizeConstraint)
 	}
 
+	@discardableResult
 	@inlinable
 	public func width(_ sizeConstraints: [ViewElement.Constraint]) -> [LayoutConstraint?]? {
 		view.width(sizeConstraints)
