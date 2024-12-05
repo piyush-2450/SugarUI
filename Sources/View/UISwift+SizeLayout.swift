@@ -40,7 +40,7 @@ public extension ViewElement {
 		var constraints: SizeConstraints?
 
 		if let view = view,
-			sizeVectors.count > 0 {
+		   sizeVectors.count > 0 {
 			constraints = SizeConstraints()
 
 			for sizeVector in sizeVectors {
@@ -66,7 +66,7 @@ public extension ViewElement {
 		var constraints: SizeConstraints?
 
 		if let view = view,
-			sizes.count > 0 {
+		   sizes.count > 0 {
 			constraints = SizeConstraints()
 
 			for size in sizes {
@@ -231,7 +231,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [LayoutConstraint?]?
 
 		if let view = view,
-			count > 0 {
+		   count > 0 {
 			constraints = []
 
 			for element in self {
@@ -252,7 +252,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [ViewElement.SizeConstraints?]?
 
 		if let view = view,
-			count > 0 {
+		   count > 0 {
 			constraints = []
 
 			for element in self {
@@ -274,7 +274,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [ViewElement.SizeConstraints?]?
 
 		if let view = view,
-			count > 0 {
+		   count > 0 {
 			constraints = []
 
 			for element in self {
@@ -295,7 +295,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [ViewElement.SizeConstraints?]?
 
 		if sizes.count > 0,
-			let firstElement = first {
+		   let firstElement = first {
 			constraints = []
 
 			for element in self {

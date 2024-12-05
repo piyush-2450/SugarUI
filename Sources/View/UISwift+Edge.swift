@@ -56,22 +56,22 @@ public extension ViewElement {
 
 		public static func lead(_ constraint: Constraint = .equal) -> EdgeVector {
 			.init(.lead,
-						 constraint)
+				  constraint)
 		}
 
 		public static func trail(_ constraint: Constraint = .equal) -> EdgeVector {
 			.init(.trail,
-						 constraint)
+				  constraint)
 		}
 
 		public static func top(_ constraint: Constraint = .equal) -> EdgeVector {
 			.init(.top,
-						 constraint)
+				  constraint)
 		}
 
 		public static func bottom(_ constraint: Constraint = .equal) -> EdgeVector {
 			.init(.bottom,
-						 constraint)
+				  constraint)
 		}
 	}
 

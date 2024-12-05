@@ -48,7 +48,7 @@ public extension ViewElement {
 		var constraints: EdgeConstraints?
 
 		if let subview = subview,
-			edgeVectors.count > 0 {
+		   edgeVectors.count > 0 {
 			constraints = EdgeConstraints()
 
 			for edgeVector in edgeVectors {
@@ -78,7 +78,7 @@ public extension ViewElement {
 		var constraints: EdgeConstraints?
 
 		if let subview = subview,
-			edges.count > 0 {
+		   edges.count > 0 {
 			constraints = EdgeConstraints()
 
 			for edge in edges {
@@ -115,7 +115,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [LayoutConstraint?]?
 
 		if let subview = subview,
-			count > 0 {
+		   count > 0 {
 			constraints = []
 
 			for element in self {
@@ -136,7 +136,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [ViewElement.EdgeConstraints?]?
 
 		if let subview = subview,
-			edgeVectors.count > 0 {
+		   edgeVectors.count > 0 {
 			constraints = []
 
 			for element in self {
@@ -158,7 +158,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [ViewElement.EdgeConstraints?]?
 
 		if let subview = subview,
-			edges.count > 0 {
+		   edges.count > 0 {
 			constraints = []
 
 			for element in self {

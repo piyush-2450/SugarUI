@@ -41,7 +41,7 @@ public extension ViewElement {
 		var constraints: [LayoutConstraint?]?
 
 		if let views = views,
-			views.count > 0 {
+		   views.count > 0 {
 			constraints = []
 			var previousView: ViewElement?
 
@@ -71,7 +71,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [LayoutConstraint?]?
 
 		if let view = view,
-			count > 0 {
+		   count > 0 {
 			constraints = []
 
 			for element in self {

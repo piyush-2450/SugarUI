@@ -67,27 +67,27 @@ public extension ViewElement {
 								 _ priority: LayoutPriority = .required,
 								 _ activate: Bool = true) -> Constraint {
 			.init(.equal,
-						 constant,
-						 priority,
-						 activate)
+				  constant,
+				  priority,
+				  activate)
 		}
 
 		public static func greater(_ constant: Unit = .zero,
 								   _ priority: LayoutPriority = .required,
 								   _ activate: Bool = true) -> Constraint {
 			.init(.greater,
-						 constant,
-						 priority,
-						 activate)
+				  constant,
+				  priority,
+				  activate)
 		}
 
 		public static func lesser(_ constant: Unit = .zero,
 								  _ priority: LayoutPriority = .required,
 								  _ activate: Bool = true) -> Constraint {
 			.init(.lesser,
-						 constant,
-						 priority,
-						 activate)
+				  constant,
+				  priority,
+				  activate)
 		}
 
 		public static prefix func -<(_ constraint: Constraint) -> Constraint {

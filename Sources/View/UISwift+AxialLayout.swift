@@ -40,7 +40,7 @@ public extension ViewElement {
 		var constraints: AxisConstraints?
 
 		if let view = view,
-			axisVectors.count > 0 {
+		   axisVectors.count > 0 {
 			constraints = AxisConstraints()
 
 			for axisVector in axisVectors {
@@ -66,7 +66,7 @@ public extension ViewElement {
 		var constraints: AxisConstraints?
 
 		if let view = view,
-			axes.count > 0 {
+		   axes.count > 0 {
 			constraints = AxisConstraints()
 
 			for axis in axes {
@@ -110,7 +110,7 @@ public extension ViewElement {
 		var constraints: [LayoutConstraint?]?
 
 		if let views = views,
-			views.count > 0 {
+		   views.count > 0 {
 			constraints = []
 
 			for view in views {
@@ -137,7 +137,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [LayoutConstraint?]?
 
 		if let view = view,
-			count > 0 {
+		   count > 0 {
 			constraints = []
 
 			for element in self {
@@ -158,7 +158,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [ViewElement.AxisConstraints?]?
 
 		if let view = view,
-			axisVectors.count > 0 {
+		   axisVectors.count > 0 {
 			constraints = []
 
 			for element in self {
@@ -180,7 +180,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [ViewElement.AxisConstraints?]?
 
 		if let view = view,
-			axes.count > 0 {
+		   axes.count > 0 {
 			constraints = []
 
 			for element in self {
@@ -202,7 +202,7 @@ public extension Array where Element == ViewElement? {
 		var constraints: [LayoutConstraint?]?
 
 		if count > 0,
-			let firstElement = first {
+		   let firstElement = first {
 			constraints = []
 
 			for element in self {

@@ -18,22 +18,22 @@ extension ViewElement: @preconcurrency UISwiftView {
 
 public extension ViewElement {
 	@inlinable
-    var bgColor: ViewColor? {
-        get {
+	var bgColor: ViewColor? {
+		get {
 #if canImport(UIKit)
-            backgroundColor
+			backgroundColor
 #else
-            nil
+			nil
 #endif
-        }
-        set {
+		}
+		set {
 #if canImport(UIKit)
-            backgroundColor = newValue
+			backgroundColor = newValue
 #else
-            //
+			//
 #endif
-        }
-    }
+		}
+	}
 
 	@inlinable
 	static func instance() -> Self {

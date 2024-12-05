@@ -40,12 +40,12 @@ public extension ViewElement {
 
 		public static func vertical(_ constraint: Constraint = .equal) -> ChainVector {
 			.init(.vertical,
-						 constraint)
+				  constraint)
 		}
 
 		public static func horizontal(_ constraint: Constraint = .equal) -> ChainVector {
 			.init(.horizontal,
-						 constraint)
+				  constraint)
 		}
 	}
 }

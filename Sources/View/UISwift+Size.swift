@@ -42,12 +42,12 @@ public extension ViewElement {
 
 		public static func height(_ constraint: Constraint = .equal) -> SizeVector {
 			.init(.height,
-						 constraint)
+				  constraint)
 		}
 
 		public static func width(_ constraint: Constraint = .equal) -> SizeVector {
 			.init(.width,
-						 constraint)
+				  constraint)
 		}
 	}
 

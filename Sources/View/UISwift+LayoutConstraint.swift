@@ -17,7 +17,7 @@ private extension NSObject {
 	func constraintTo(_ object: NSObject,
 					  _ viewConstraint: ViewElement.Constraint) -> LayoutConstraint {
 		var constraint: LayoutConstraint!
-		
+
 		switch (self, object) {
 		case (let from, let to) as (LayoutAnchor<AnyObject>, LayoutAnchor<AnyObject>):
 			switch viewConstraint.relation {
@@ -36,7 +36,7 @@ private extension NSObject {
 		default:
 			break
 		}
-		
+
 		return constraint
 	}
 }
@@ -46,7 +46,7 @@ public extension HorizontalAnchor {
 	func constraint(to anchor: HorizontalAnchor,
 					_ viewConstraint: ViewElement.Constraint) -> LayoutConstraint {
 		constraintTo(anchor,
-							viewConstraint)
+					 viewConstraint)
 	}
 }
 
@@ -55,7 +55,7 @@ public extension VerticalAnchor {
 	func constraint(to anchor: VerticalAnchor,
 					_ viewConstraint: ViewElement.Constraint) -> LayoutConstraint {
 		constraintTo(anchor,
-							viewConstraint)
+					 viewConstraint)
 	}
 }
 
