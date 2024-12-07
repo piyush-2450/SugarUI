@@ -22,30 +22,36 @@ public extension ViewElement {
 		private(set) var direction: ChainDirection
 		private(set) var constraint: Constraint
 
-		init(_ direction: ChainDirection,
-			 _ constraint: Constraint = .equal) {
+		init(
+			_ direction: ChainDirection,
+			_ constraint: Constraint = .equal
+		) {
 			self.direction = direction
 			self.constraint = constraint
 		}
 
 		@inlinable
-		public static var vertical: ChainVector {
+		public static var vertical: Self {
 			vertical()
 		}
 
 		@inlinable
-		public static var horizontal: ChainVector {
+		public static var horizontal: Self {
 			horizontal()
 		}
 
-		public static func vertical(_ constraint: Constraint = .equal) -> ChainVector {
-			.init(.vertical,
-				  constraint)
+		public static func vertical(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.vertical,
+				constraint
+			)
 		}
 
-		public static func horizontal(_ constraint: Constraint = .equal) -> ChainVector {
-			.init(.horizontal,
-				  constraint)
+		public static func horizontal(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.horizontal,
+				constraint
+			)
 		}
 	}
 }

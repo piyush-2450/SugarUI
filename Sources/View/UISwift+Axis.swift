@@ -17,37 +17,46 @@ public extension ViewElement {
 		case vertical
 		case horizontal
 
-		@MainActor public static let all: [Axis] = [.vertical, .horizontal]
+		@MainActor public static let all: [Self] = [
+			.vertical,
+			.horizontal
+		]
 	}
 
 	struct AxisVector {
 		private(set) var axis: Axis
 		private(set) var constraint: Constraint
 
-		init(_ axis: Axis,
-			 _ constraint: Constraint = .equal) {
+		init(
+			_ axis: Axis,
+			_ constraint: Constraint = .equal
+		) {
 			self.axis = axis
 			self.constraint = constraint
 		}
 
 		@inlinable
-		public static var vertical: AxisVector {
+		public static var vertical: Self {
 			vertical()
 		}
 
 		@inlinable
-		public static var horizontal: AxisVector {
+		public static var horizontal: Self {
 			horizontal()
 		}
 
-		public static func vertical(_ constraint: Constraint = .equal) -> AxisVector {
-			.init(.vertical,
-				  constraint)
+		public static func vertical(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.vertical,
+				constraint
+			)
 		}
 
-		public static func horizontal(_ constraint: Constraint = .equal) -> AxisVector {
-			.init(.horizontal,
-				  constraint)
+		public static func horizontal(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.horizontal,
+				constraint
+			)
 		}
 	}
 
@@ -63,11 +72,14 @@ public extension ViewElement {
 			}
 		}
 
-		mutating func set(_ axis: Axis,
-						  _ constraint: LayoutConstraint?) {
+		mutating func set(
+			_ axis: Axis,
+			_ constraint: LayoutConstraint?
+		) {
 			switch axis {
 			case .vertical:
 				vertical = constraint
+
 			case .horizontal:
 				horizontal = constraint
 			}

@@ -34,6 +34,7 @@ public typealias LayoutDimension = NSLayoutDimension
 #error("Unsupported platform")
 #endif
 
+// swiftlint:disable discouraged_optional_collection
 public protocol UISwiftView {
 	@inlinable
 	var bgColor: ViewColor? { get set }
@@ -217,3 +218,4 @@ public protocol UISwiftView {
 	@inlinable
 	func width(_ sizeConstraints: [ViewElement.Constraint]) -> [LayoutConstraint?]?
 }
+// swiftlint:enable discouraged_optional_collection

@@ -12,30 +12,44 @@ import UIKit
 import AppKit
 #endif
 
+// swiftlint:disable discouraged_optional_collection
 public extension ViewElement {
 	@discardableResult
-	func align(_ subview: ViewElement?,
-			   _ edgeVector: EdgeVector) -> LayoutConstraint? {
+	func align(
+		_ subview: ViewElement?,
+		_ edgeVector: EdgeVector
+	) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
 
-		if let subview = subview {
+		if let subview {
 			switch (edgeVector.edge, edgeVector.constraint) {
 			case (.lead, let axisConstraint):
 				constraint = subview.leadAnchor
-					.constraint(to: leadAnchor,
-								axisConstraint)
+					.constraint(
+						to: leadAnchor,
+						axisConstraint
+					)
+
 			case (.trail, let axisConstraint):
 				constraint = trailAnchor
-					.constraint(to: subview.trailAnchor,
-								axisConstraint)
+					.constraint(
+						to: subview.trailAnchor,
+						axisConstraint
+					)
+
 			case (.top, let axisConstraint):
 				constraint = subview.headAnchor
-					.constraint(to: headAnchor,
-								axisConstraint)
+					.constraint(
+						to: headAnchor,
+						axisConstraint
+					)
+
 			case (.bottom, let axisConstraint):
 				constraint = footAnchor
-					.constraint(to: subview.footAnchor,
-								axisConstraint)
+					.constraint(
+						to: subview.footAnchor,
+						axisConstraint
+					)
 			}
 		}
 
@@ -43,25 +57,32 @@ public extension ViewElement {
 	}
 
 	@discardableResult
-	func align(_ subview: ViewElement?,
-			   _ edgeVectors: [EdgeVector]) -> EdgeConstraints? {
+	func align(
+		_ subview: ViewElement?,
+		_ edgeVectors: [EdgeVector]
+	) -> EdgeConstraints? {
 		var constraints: EdgeConstraints?
 
-		if let subview = subview,
-		   edgeVectors.count > 0 {
+		if let subview,
+		   edgeVectors.isEmpty == false {
 			constraints = EdgeConstraints()
 
 			for edgeVector in edgeVectors {
-				let constraint = align(subview,
-									   edgeVector)
+				let constraint: LayoutConstraint? = align(
+					subview,
+					edgeVector
+				)
 
 				switch edgeVector.edge {
 				case .lead:
 					constraints?.lead = constraint
+
 				case .trail:
 					constraints?.trail = constraint
+
 				case .top:
 					constraints?.top = constraint
+
 				case .bottom:
 					constraints?.bottom = constraint
 				}
@@ -72,28 +93,37 @@ public extension ViewElement {
 	}
 
 	@discardableResult
-	func align(_ subview: ViewElement?,
-			   _ edges: [Edge] = .all,
-			   _ constraint: Constraint = .equal) -> EdgeConstraints? {
+	func align(
+		_ subview: ViewElement?,
+		_ edges: [Edge] = .all,
+		_ constraint: Constraint = .equal
+	) -> EdgeConstraints? {
 		var constraints: EdgeConstraints?
 
-		if let subview = subview,
-		   edges.count > 0 {
+		if let subview,
+		   edges.isEmpty == false {
 			constraints = EdgeConstraints()
 
 			for edge in edges {
-				let edgeVector = EdgeVector(edge,
-											constraint)
-				let constraint = align(subview,
-									   edgeVector)
+				let edgeVector: EdgeVector = EdgeVector(
+					edge,
+					constraint
+				)
+				let constraint: LayoutConstraint? = align(
+					subview,
+					edgeVector
+				)
 
 				switch edgeVector.edge {
 				case .lead:
 					constraints?.lead = constraint
+
 				case .trail:
 					constraints?.trail = constraint
+
 				case .top:
 					constraints?.top = constraint
+
 				case .bottom:
 					constraints?.bottom = constraint
 				}
@@ -110,17 +140,22 @@ public extension Array where Element == ViewElement? {
 	@MainActor
 	@inlinable
 	@discardableResult
-	func align(_ subview: ViewElement?,
-			   _ edgeVector: ViewElement.EdgeVector) -> [LayoutConstraint?]? {
+	func align(
+		_ subview: ViewElement?,
+		_ edgeVector: ViewElement.EdgeVector
+	) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
-		if let subview = subview,
-		   count > 0 {
+		if let subview,
+		   isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.align(subview,
-												edgeVector)
+				let constraint: LayoutConstraint? = element?
+					.align(
+						subview,
+						edgeVector
+					)
 				constraints?.append(constraint)
 			}
 		}
@@ -131,17 +166,22 @@ public extension Array where Element == ViewElement? {
 	@MainActor
 	@inlinable
 	@discardableResult
-	func align(_ subview: ViewElement?,
-			   _ edgeVectors: [ViewElement.EdgeVector]) -> [ViewElement.EdgeConstraints?]? {
+	func align(
+		_ subview: ViewElement?,
+		_ edgeVectors: [ViewElement.EdgeVector]
+	) -> [ViewElement.EdgeConstraints?]? {
 		var constraints: [ViewElement.EdgeConstraints?]?
 
-		if let subview = subview,
-		   edgeVectors.count > 0 {
+		if let subview,
+		   edgeVectors.isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.align(subview,
-												edgeVectors)
+				let constraint: ViewElement.EdgeConstraints? = element?
+					.align(
+						subview,
+						edgeVectors
+					)
 				constraints?.append(constraint)
 			}
 		}
@@ -152,19 +192,24 @@ public extension Array where Element == ViewElement? {
 	@MainActor
 	@inlinable
 	@discardableResult
-	func align(_ subview: ViewElement?,
-			   _ edges: [ViewElement.Edge] = .all,
-			   _ constraint: ViewElement.Constraint = .equal) -> [ViewElement.EdgeConstraints?]? {
+	func align(
+		_ subview: ViewElement?,
+		_ edges: [ViewElement.Edge] = .all,
+		_ constraint: ViewElement.Constraint = .equal
+	) -> [ViewElement.EdgeConstraints?]? {
 		var constraints: [ViewElement.EdgeConstraints?]?
 
-		if let subview = subview,
-		   edges.count > 0 {
+		if let subview,
+		   edges.isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.align(subview,
-												edges,
-												constraint)
+				let constraint: ViewElement.EdgeConstraints? = element?
+					.align(
+						subview,
+						edges,
+						constraint
+					)
 				constraints?.append(constraint)
 			}
 		}
@@ -172,3 +217,4 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 }
+// swiftlint:enable discouraged_optional_collection

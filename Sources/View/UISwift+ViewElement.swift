@@ -38,7 +38,7 @@ public extension ViewElement {
 	@inlinable
 	static func instance() -> Self {
 		func instance<T: ViewElement>() -> T {
-			let instance = T(frame: .zero)
+			let instance: T = T(frame: .zero)
 			instance.translatesAutoresizingMaskIntoConstraints = false
 #if canImport(UIKit)
 			instance.clipsToBounds = true

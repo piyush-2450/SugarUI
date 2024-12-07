@@ -12,22 +12,30 @@ import UIKit
 import AppKit
 #endif
 
+// swiftlint:disable discouraged_optional_collection file_length
 public extension ViewElement {
 	@discardableResult
-	func matchSize(_ view: ViewElement?,
-				   _ sizeVector: SizeVector) -> LayoutConstraint? {
+	func matchSize(
+		_ view: ViewElement?,
+		_ sizeVector: SizeVector
+	) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
 
-		if let view = view {
+		if let view {
 			switch (sizeVector.size, sizeVector.constraint) {
 			case (.height, let axisConstraint):
 				constraint = heightAnchor
-					.constraint(to: view.heightAnchor,
-								axisConstraint)
+					.constraint(
+						to: view.heightAnchor,
+						axisConstraint
+					)
+
 			case (.width, let axisConstraint):
 				constraint = widthAnchor
-					.constraint(to: view.widthAnchor,
-								axisConstraint)
+					.constraint(
+						to: view.widthAnchor,
+						axisConstraint
+					)
 			}
 		}
 
@@ -35,21 +43,26 @@ public extension ViewElement {
 	}
 
 	@discardableResult
-	func matchSize(_ view: ViewElement?,
-				   _ sizeVectors: [SizeVector]) -> SizeConstraints? {
+	func matchSize(
+		_ view: ViewElement?,
+		_ sizeVectors: [SizeVector]
+	) -> SizeConstraints? {
 		var constraints: SizeConstraints?
 
-		if let view = view,
-		   sizeVectors.count > 0 {
+		if let view,
+		   sizeVectors.isEmpty == false {
 			constraints = SizeConstraints()
 
 			for sizeVector in sizeVectors {
-				let constraint = matchSize(view,
-										   sizeVector)
+				let constraint: LayoutConstraint? = matchSize(
+					view,
+					sizeVector
+				)
 
 				switch sizeVector.size {
 				case .height:
 					constraints?.height = constraint
+
 				case .width:
 					constraints?.width = constraint
 				}
@@ -60,24 +73,31 @@ public extension ViewElement {
 	}
 
 	@discardableResult
-	func matchSize(_ view: ViewElement?,
-				   _ sizes: [Size] = .all,
-				   _ constraint: Constraint = .equal) -> SizeConstraints? {
+	func matchSize(
+		_ view: ViewElement?,
+		_ sizes: [Size] = .all,
+		_ constraint: Constraint = .equal
+	) -> SizeConstraints? {
 		var constraints: SizeConstraints?
 
-		if let view = view,
-		   sizes.count > 0 {
+		if let view,
+		   sizes.isEmpty == false {
 			constraints = SizeConstraints()
 
 			for size in sizes {
-				let sizeVector = SizeVector(size,
-											constraint)
-				let constraint = matchSize(view,
-										   sizeVector)
+				let sizeVector: SizeVector = SizeVector(
+					size,
+					constraint
+				)
+				let constraint: LayoutConstraint? = matchSize(
+					view,
+					sizeVector
+				)
 
 				switch sizeVector.size {
 				case .height:
 					constraints?.height = constraint
+
 				case .width:
 					constraints?.width = constraint
 				}
@@ -89,13 +109,17 @@ public extension ViewElement {
 
 	@inlinable
 	@discardableResult
-	func matchSize(_ view: ViewElement?,
-				   _ constraint: Constraint = .equal) -> SizeConstraints? {
+	func matchSize(
+		_ view: ViewElement?,
+		_ constraint: Constraint = .equal
+	) -> SizeConstraints? {
 		var constraints: SizeConstraints?
 
-		constraints = matchSize(view,
-								.all,
-								constraint)
+		constraints = matchSize(
+			view,
+			.all,
+			constraint
+		)
 
 		return constraints
 	}
@@ -108,6 +132,7 @@ public extension ViewElement {
 		case (.height, let axisConstraint):
 			constraint = heightAnchor
 				.constraint(axisConstraint)
+
 		case (.width, let axisConstraint):
 			constraint = widthAnchor
 				.constraint(axisConstraint)
@@ -120,15 +145,16 @@ public extension ViewElement {
 	func fixSize(_ sizeVectors: [SizeVector]) -> SizeConstraints? {
 		var constraints: SizeConstraints?
 
-		if sizeVectors.count > 0 {
+		if sizeVectors.isEmpty == false {
 			constraints = SizeConstraints()
 
 			for sizeVector in sizeVectors {
-				let constraint = fixSize(sizeVector)
+				let constraint: LayoutConstraint? = fixSize(sizeVector)
 
 				switch sizeVector.size {
 				case .height:
 					constraints?.height = constraint
+
 				case .width:
 					constraints?.width = constraint
 				}
@@ -139,21 +165,26 @@ public extension ViewElement {
 	}
 
 	@discardableResult
-	func fixSize(_ axes: [Size] = .all,
-				 _ constraint: Constraint = .equal) -> SizeConstraints? {
+	func fixSize(
+		_ axes: [Size] = .all,
+		_ constraint: Constraint = .equal
+	) -> SizeConstraints? {
 		var constraints: SizeConstraints?
 
-		if axes.count > 0 {
+		if axes.isEmpty == false {
 			constraints = SizeConstraints()
 
 			for axis in axes {
-				let sizeVector = SizeVector(axis,
-											constraint)
-				let constraint = fixSize(sizeVector)
+				let sizeVector: SizeVector = SizeVector(
+					axis,
+					constraint
+				)
+				let constraint: LayoutConstraint? = fixSize(sizeVector)
 
 				switch sizeVector.size {
 				case .height:
 					constraints?.height = constraint
+
 				case .width:
 					constraints?.width = constraint
 				}
@@ -167,8 +198,10 @@ public extension ViewElement {
 	func height(_ sizeConstraint: Constraint = .equal) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
 
-		let sizeVector = SizeVector(.height,
-									sizeConstraint)
+		let sizeVector: SizeVector = SizeVector(
+			.height,
+			sizeConstraint
+		)
 		constraint = fixSize(sizeVector)
 
 		return constraint
@@ -179,11 +212,11 @@ public extension ViewElement {
 	func height(_ sizeConstraints: [Constraint]) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
-		if sizeConstraints.count > 0 {
+		if sizeConstraints.isEmpty == false {
 			constraints = []
 
 			for sizeConstraint in sizeConstraints {
-				let constraint = height(sizeConstraint)
+				let constraint: LayoutConstraint? = height(sizeConstraint)
 				constraints?.append(constraint)
 			}
 		}
@@ -195,8 +228,10 @@ public extension ViewElement {
 	func width(_ sizeConstraint: Constraint = .equal) -> LayoutConstraint? {
 		var constraint: LayoutConstraint?
 
-		let sizeVector = SizeVector(.width,
-									sizeConstraint)
+		let sizeVector: SizeVector = SizeVector(
+			.width,
+			sizeConstraint
+		)
 		constraint = fixSize(sizeVector)
 
 		return constraint
@@ -207,11 +242,11 @@ public extension ViewElement {
 	func width(_ sizeConstraints: [Constraint]) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
-		if sizeConstraints.count > 0 {
+		if sizeConstraints.isEmpty == false {
 			constraints = []
 
 			for sizeConstraint in sizeConstraints {
-				let constraint = width(sizeConstraint)
+				let constraint: LayoutConstraint? = width(sizeConstraint)
 				constraints?.append(constraint)
 			}
 		}
@@ -226,17 +261,22 @@ public extension Array where Element == ViewElement? {
 	@MainActor
 	@inlinable
 	@discardableResult
-	func matchSize(_ view: ViewElement?,
-				   _ sizeVector: ViewElement.SizeVector) -> [LayoutConstraint?]? {
+	func matchSize(
+		_ view: ViewElement?,
+		_ sizeVector: ViewElement.SizeVector
+	) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
-		if let view = view,
-		   count > 0 {
+		if let view,
+		   isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.matchSize(view,
-													sizeVector)
+				let constraint: LayoutConstraint? = element?
+					.matchSize(
+						view,
+						sizeVector
+					)
 				constraints?.append(constraint)
 			}
 		}
@@ -247,17 +287,22 @@ public extension Array where Element == ViewElement? {
 	@MainActor
 	@inlinable
 	@discardableResult
-	func matchSize(_ view: ViewElement?,
-				   _ sizeVectors: [ViewElement.SizeVector]) -> [ViewElement.SizeConstraints?]? {
+	func matchSize(
+		_ view: ViewElement?,
+		_ sizeVectors: [ViewElement.SizeVector]
+	) -> [ViewElement.SizeConstraints?]? {
 		var constraints: [ViewElement.SizeConstraints?]?
 
-		if let view = view,
-		   count > 0 {
+		if let view,
+		   isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.matchSize(view,
-													sizeVectors)
+				let constraint: ViewElement.SizeConstraints? = element?
+					.matchSize(
+						view,
+						sizeVectors
+					)
 				constraints?.append(constraint)
 			}
 		}
@@ -268,18 +313,23 @@ public extension Array where Element == ViewElement? {
 	@MainActor
 	@inlinable
 	@discardableResult
-	func matchSize(_ view: ViewElement?,
-				   _ sizes: [ViewElement.Size] = .all,
-				   _ constraint: ViewElement.Constraint = .equal) -> [ViewElement.SizeConstraints?]? {
+	func matchSize(
+		_ view: ViewElement?,
+		_ sizes: [ViewElement.Size] = .all,
+		_ constraint: ViewElement.Constraint = .equal
+	) -> [ViewElement.SizeConstraints?]? {
 		var constraints: [ViewElement.SizeConstraints?]?
 
-		if let view = view,
-		   count > 0 {
+		if let view,
+		   isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.matchSize(view,
-													sizes)
+				let constraint: ViewElement.SizeConstraints? = element?
+					.matchSize(
+						view,
+						sizes
+					)
 				constraints?.append(constraint)
 			}
 		}
@@ -290,20 +340,23 @@ public extension Array where Element == ViewElement? {
 	@MainActor
 	@inlinable
 	@discardableResult
-	func matchSizes(_ sizes: [ViewElement.Size] = .all,
-					_ constraint: ViewElement.Constraint = .equal) -> [ViewElement.SizeConstraints?]? {
+	func matchSizes(
+		_ sizes: [ViewElement.Size] = .all,
+		_ constraint: ViewElement.Constraint = .equal
+	) -> [ViewElement.SizeConstraints?]? {
 		var constraints: [ViewElement.SizeConstraints?]?
 
-		if sizes.count > 0,
+		if sizes.isEmpty == false,
 		   let firstElement = first {
 			constraints = []
 
-			for element in self {
-				if element != first {
-					let constraint = element?.matchSize(firstElement,
-														sizes)
-					constraints?.append(constraint)
-				}
+			for element in self where element != first {
+				let constraint: ViewElement.SizeConstraints? = element?
+					.matchSize(
+						firstElement,
+						sizes
+					)
+				constraints?.append(constraint)
 			}
 		}
 
@@ -316,11 +369,12 @@ public extension Array where Element == ViewElement? {
 	func fixSize(_ sizeVector: ViewElement.SizeVector) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
-		if count > 0 {
+		if isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.fixSize(sizeVector)
+				let constraint: LayoutConstraint? = element?
+					.fixSize(sizeVector)
 				constraints?.append(constraint)
 			}
 		}
@@ -334,11 +388,12 @@ public extension Array where Element == ViewElement? {
 	func fixSize(_ sizeVectors: [ViewElement.SizeVector]) -> [ViewElement.SizeConstraints?]? {
 		var constraints: [ViewElement.SizeConstraints?]?
 
-		if count > 0 {
+		if isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.fixSize(sizeVectors)
+				let constraint: ViewElement.SizeConstraints? = element?
+					.fixSize(sizeVectors)
 				constraints?.append(constraint)
 			}
 		}
@@ -346,25 +401,32 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 
+	// swiftlint:disable function_default_parameter_at_end
 	@MainActor
 	@inlinable
 	@discardableResult
-	func fixSize(_ sizes: [ViewElement.Size] = .all,
-				 _ constraint: ViewElement.Constraint) -> [ViewElement.SizeConstraints?]? {
+	func fixSize(
+		_ sizes: [ViewElement.Size] = .all,
+		_ constraint: ViewElement.Constraint
+	) -> [ViewElement.SizeConstraints?]? {
 		var constraints: [ViewElement.SizeConstraints?]?
 
-		if count > 0 {
+		if isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let fixConstraint = element?.fixSize(sizes,
-													 constraint)
+				let fixConstraint: ViewElement.SizeConstraints? = element?
+					.fixSize(
+						sizes,
+						constraint
+					)
 				constraints?.append(fixConstraint)
 			}
 		}
 
 		return constraints
 	}
+	// swiftlint:enable function_default_parameter_at_end
 
 	@MainActor
 	@inlinable
@@ -372,12 +434,15 @@ public extension Array where Element == ViewElement? {
 	func fixSizes(_ constraint: ViewElement.Constraint = .equal) -> [ViewElement.SizeConstraints?]? {
 		var constraints: [ViewElement.SizeConstraints?]?
 
-		if count > 0 {
+		if isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let fixConstraint = element?.fixSize(.all,
-													 constraint)
+				let fixConstraint: ViewElement.SizeConstraints? = element?
+					.fixSize(
+						.all,
+						constraint
+					)
 				constraints?.append(fixConstraint)
 			}
 		}
@@ -391,11 +456,12 @@ public extension Array where Element == ViewElement? {
 	func height(_ sizeConstraint: ViewElement.Constraint) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
-		if count > 0 {
+		if isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.height(sizeConstraint)
+				let constraint: LayoutConstraint? = element?
+					.height(sizeConstraint)
 				constraints?.append(constraint)
 			}
 		}
@@ -409,11 +475,12 @@ public extension Array where Element == ViewElement? {
 	func width(_ sizeConstraint: ViewElement.Constraint) -> [LayoutConstraint?]? {
 		var constraints: [LayoutConstraint?]?
 
-		if count > 0 {
+		if isEmpty == false {
 			constraints = []
 
 			for element in self {
-				let constraint = element?.width(sizeConstraint)
+				let constraint: LayoutConstraint? = element?
+					.width(sizeConstraint)
 				constraints?.append(constraint)
 			}
 		}
@@ -421,3 +488,4 @@ public extension Array where Element == ViewElement? {
 		return constraints
 	}
 }
+// swiftlint:enable discouraged_optional_collection file_length

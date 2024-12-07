@@ -17,37 +17,46 @@ public extension ViewElement {
 		case height
 		case width
 
-		@MainActor public static let all: [Size] = [.height, .width]
+		@MainActor public static let all: [Self] = [
+			.height,
+			.width
+		]
 	}
 
 	struct SizeVector {
 		private(set) var size: Size
 		private(set) var constraint: Constraint
 
-		init(_ axis: Size,
-			 _ constraint: Constraint = .equal) {
+		init(
+			_ axis: Size,
+			_ constraint: Constraint = .equal
+		) {
 			self.size = axis
 			self.constraint = constraint
 		}
 
 		@inlinable
-		public static var height: SizeVector {
+		public static var height: Self {
 			height()
 		}
 
 		@inlinable
-		public static var width: SizeVector {
+		public static var width: Self {
 			width()
 		}
 
-		public static func height(_ constraint: Constraint = .equal) -> SizeVector {
-			.init(.height,
-				  constraint)
+		public static func height(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.height,
+				constraint
+			)
 		}
 
-		public static func width(_ constraint: Constraint = .equal) -> SizeVector {
-			.init(.width,
-				  constraint)
+		public static func width(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.width,
+				constraint
+			)
 		}
 	}
 
@@ -63,11 +72,14 @@ public extension ViewElement {
 			}
 		}
 
-		mutating func set(_ axis: Size,
-						  _ constraint: LayoutConstraint?) {
+		mutating func set(
+			_ axis: Size,
+			_ constraint: LayoutConstraint?
+		) {
 			switch axis {
 			case .height:
 				height = constraint
+
 			case .width:
 				width = constraint
 			}

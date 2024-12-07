@@ -12,6 +12,7 @@ import UIKit
 import AppKit
 #endif
 
+// swiftlint:disable discouraged_optional_collection
 extension ViewController: @preconcurrency UISwiftView {
 	@inlinable
 	public var bgColor: ViewColor? {
@@ -326,3 +327,4 @@ extension ViewController: @preconcurrency UISwiftView {
 		view.width(sizeConstraints)
 	}
 }
+// swiftlint:enable discouraged_optional_collection

@@ -14,14 +14,33 @@ let package = Package(
             name: "UISwift",
             targets: ["UISwift"]
 		),
-    ],
+	],
+	dependencies: [
+		.package(
+			url: "https://github.com/realm/SwiftLint.git",
+			branch: "main"
+		)
+	],
     targets: [
         .target(
-            name: "UISwift"
+            name: "UISwift",
+			dependencies: [],
+			plugins: [
+				.plugin(
+					name: "SwiftLintBuildToolPlugin",
+					package: "swiftlint"
+				)
+			]
 		),
         .testTarget(
             name: "UISwiftTests",
-            dependencies: ["UISwift"]
+            dependencies: ["UISwift"],
+			plugins: [
+				.plugin(
+					name: "SwiftLintBuildToolPlugin",
+					package: "swiftlint"
+				)
+			]
         ),
     ]
 )

@@ -15,6 +15,7 @@ import AppKit
 prefix operator >-
 prefix operator -<
 
+// swiftlint:disable nesting
 public extension ViewElement {
 	struct Constraint: ExpressibleByIntegerLiteral,
 					   ExpressibleByFloatLiteral {
@@ -29,10 +30,12 @@ public extension ViewElement {
 		private(set) var priority: LayoutPriority
 		private(set) var activate: Bool
 
-		private init(_ relation: Relation,
-					 _ constant: Unit,
-					 _ priority: LayoutPriority = .required,
-					 _ activate: Bool = true) {
+		private init(
+			_ relation: Relation,
+			_ constant: Unit,
+			_ priority: LayoutPriority = .required,
+			_ activate: Bool = true
+		) {
 			self.relation = relation
 			self.constant = constant
 			self.priority = priority
@@ -44,58 +47,73 @@ public extension ViewElement {
 		}
 
 		public init(floatLiteral value: Double) {
-			self.init(.equal,
-					  Unit(value))
+			self.init(
+				.equal,
+				Unit(value)
+			)
 		}
 
 		@inlinable
-		public static var equal: Constraint {
+		public static var equal: Self {
 			.equal()
 		}
 
 		@inlinable
-		public static var greater: Constraint {
+		public static var greater: Self {
 			.greater()
 		}
 
 		@inlinable
-		public static var lesser: Constraint {
+		public static var lesser: Self {
 			.lesser()
 		}
 
-		public static func equal(_ constant: Unit = .zero,
-								 _ priority: LayoutPriority = .required,
-								 _ activate: Bool = true) -> Constraint {
-			.init(.equal,
-				  constant,
-				  priority,
-				  activate)
+		public static func equal(
+			_ constant: Unit = .zero,
+			_ priority: LayoutPriority = .required,
+			_ activate: Bool = true
+		) -> Self {
+			.init(
+				.equal,
+				constant,
+				priority,
+				activate
+			)
 		}
 
-		public static func greater(_ constant: Unit = .zero,
-								   _ priority: LayoutPriority = .required,
-								   _ activate: Bool = true) -> Constraint {
-			.init(.greater,
-				  constant,
-				  priority,
-				  activate)
+		public static func greater(
+			_ constant: Unit = .zero,
+			_ priority: LayoutPriority = .required,
+			_ activate: Bool = true
+		) -> Self {
+			.init(
+				.greater,
+				constant,
+				priority,
+				activate
+			)
 		}
 
-		public static func lesser(_ constant: Unit = .zero,
-								  _ priority: LayoutPriority = .required,
-								  _ activate: Bool = true) -> Constraint {
-			.init(.lesser,
-				  constant,
-				  priority,
-				  activate)
+		public static func lesser(
+			_ constant: Unit = .zero,
+			_ priority: LayoutPriority = .required,
+			_ activate: Bool = true
+		) -> Self {
+			.init(
+				.lesser,
+				constant,
+				priority,
+				activate
+			)
 		}
 
-		public static prefix func -<(_ constraint: Constraint) -> Constraint {
+		public static prefix func -< (_ constraint: Self) -> Self {
 			.lesser(constraint.constant)
 		}
 
-		public static prefix func >-(_ constraint: Constraint) -> Constraint {
+		public static prefix func >- (_ constraint: Self) -> Self {
 			.greater(constraint.constant)
 		}
 	}
 }
+// swiftlint:enable nesting

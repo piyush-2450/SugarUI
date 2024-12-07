@@ -19,59 +19,75 @@ public extension ViewElement {
 		case top
 		case bottom
 
-		@MainActor public static let all: [Edge] = Edge.horizontalEdges + Edge.verticalEdges
-		@MainActor public static let verticalEdges: [Edge] = [.top, .bottom]
-		@MainActor public static let horizontalEdges: [Edge] = [.lead, .trail]
+		@MainActor public static let all: [Self] = Self.horizontalEdges + Self.verticalEdges
+		@MainActor public static let verticalEdges: [Self] = [
+			.top,
+			.bottom
+		]
+		@MainActor public static let horizontalEdges: [Self] = [
+			.lead,
+			.trail
+		]
 	}
 
 	struct EdgeVector {
 		private(set) var edge: Edge
 		private(set) var constraint: Constraint
 
-		init(_ edge: Edge,
-			 _ constraint: Constraint = .equal) {
+		init(
+			_ edge: Edge,
+			_ constraint: Constraint = .equal
+		) {
 			self.edge = edge
 			self.constraint = constraint
 		}
 
 		@inlinable
-		public static var lead: EdgeVector {
+		public static var lead: Self {
 			lead()
 		}
 
 		@inlinable
-		public static var trail: EdgeVector {
+		public static var trail: Self {
 			trail()
 		}
 
 		@inlinable
-		public static var top: EdgeVector {
+		public static var top: Self {
 			top()
 		}
 
 		@inlinable
-		public static var bottom: EdgeVector {
+		public static var bottom: Self {
 			bottom()
 		}
 
-		public static func lead(_ constraint: Constraint = .equal) -> EdgeVector {
-			.init(.lead,
-				  constraint)
+		public static func lead(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.lead,
+				constraint
+			)
 		}
 
-		public static func trail(_ constraint: Constraint = .equal) -> EdgeVector {
-			.init(.trail,
-				  constraint)
+		public static func trail(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.trail,
+				constraint
+			)
 		}
 
-		public static func top(_ constraint: Constraint = .equal) -> EdgeVector {
-			.init(.top,
-				  constraint)
+		public static func top(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.top,
+				constraint
+			)
 		}
 
-		public static func bottom(_ constraint: Constraint = .equal) -> EdgeVector {
-			.init(.bottom,
-				  constraint)
+		public static func bottom(_ constraint: Constraint = .equal) -> Self {
+			.init(
+				.bottom,
+				constraint
+			)
 		}
 	}
 
@@ -91,15 +107,20 @@ public extension ViewElement {
 			}
 		}
 
-		mutating func set(_ edge: Edge,
-						  _ constraint: LayoutConstraint?) {
+		mutating func set(
+			_ edge: Edge,
+			_ constraint: LayoutConstraint?
+		) {
 			switch edge {
 			case .lead:
 				lead = constraint
+
 			case .trail:
 				trail = constraint
+
 			case .top:
 				top = constraint
+
 			case .bottom:
 				bottom = constraint
 			}
@@ -116,4 +137,3 @@ public extension Array where Element == ViewElement.Edge {
 		ViewElement.Edge.all
 	}
 }
-
