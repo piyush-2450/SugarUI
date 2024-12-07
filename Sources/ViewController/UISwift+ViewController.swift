@@ -130,7 +130,7 @@ extension ViewController: @preconcurrency UISwiftView {
 	@inlinable
 	public func center(
 		_ view: ViewElement?,
-		_ axes: [ViewElement.Axis],
+		_ axes: [ViewElement.Axis] = .all,
 		_ constraint: ViewElement.Constraint = .equal
 	) -> ViewElement.AxisConstraints? {
 		self.view.center(
