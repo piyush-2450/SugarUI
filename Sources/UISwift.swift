@@ -218,4 +218,15 @@ public protocol UISwiftView {
 	@inlinable
 	func width(_ sizeConstraints: [ViewElement.Constraint]) -> [LayoutConstraint?]?
 }
+
+extension ViewColor {
+	public static func random() -> Self {
+		.init(
+			red: CGFloat.random(in: 0...1),
+			green: CGFloat.random(in: 0...1),
+			blue: CGFloat.random(in: 0...1),
+			alpha: 1.0
+		)
+	}
+}
 // swiftlint:enable discouraged_optional_collection

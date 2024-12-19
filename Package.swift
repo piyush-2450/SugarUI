@@ -19,12 +19,16 @@ let package = Package(
 		.package(
 			url: "https://github.com/realm/SwiftLint.git",
 			branch: "main"
+		),
+		.package(
+			url: "https://github.com/piyush-2450/Observe.git",
+			branch: "main"
 		)
 	],
     targets: [
         .target(
             name: "UISwift",
-			dependencies: [],
+			dependencies: ["Observe"],
 			plugins: [
 				.plugin(
 					name: "SwiftLintBuildToolPlugin",

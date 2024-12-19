@@ -327,4 +327,21 @@ extension ViewController: @preconcurrency UISwiftView {
 		view.width(sizeConstraints)
 	}
 }
+
+public extension ViewController {
+	@inlinable
+	static func instance() -> Self {
+		func instance<T: ViewController>() -> T {
+			let instance: T = T()
+			instance.view.translatesAutoresizingMaskIntoConstraints = false
+#if canImport(UIKit)
+			instance.view.clipsToBounds = true
+#endif
+			instance.view.bgColor = .clear
+			return instance
+		}
+
+		return instance()
+	}
+}
 // swiftlint:enable discouraged_optional_collection
